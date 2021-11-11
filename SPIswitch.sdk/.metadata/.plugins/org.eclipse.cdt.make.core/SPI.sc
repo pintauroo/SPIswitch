@@ -2,18 +2,26 @@
 <?scdStore version="2"?><scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
 <instance id="xilinx.gnu.mb.exe.debug.737773975;xilinx.gnu.mb.exe.debug.737773975.">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="c:\xilinx\sdk\2019.1\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/8.2.0/include"/>
+<includePath path="c:\xilinx\sdk\2019.1\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/8.2.0/include-fixed"/>
+<includePath path="c:\xilinx\sdk\2019.1\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/8.2.0/../../../../microblaze-xilinx-elf/include"/>
 <includePath path="c:\xilinx\sdk\2018.3\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.3.1/include"/>
 <includePath path="c:\xilinx\sdk\2018.3\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.3.1/include-fixed"/>
 <includePath path="c:\xilinx\sdk\2018.3\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.3.1/../../../../microblaze-xilinx-elf/include"/>
 <definedSymbol symbol="__STDC__=1"/>
 <definedSymbol symbol="__STDC_VERSION__=201112L"/>
+<definedSymbol symbol="__STDC_VERSION__=201710L"/>
 <definedSymbol symbol="__STDC_UTF_16__=1"/>
 <definedSymbol symbol="__STDC_UTF_32__=1"/>
 <definedSymbol symbol="__STDC_HOSTED__=1"/>
 <definedSymbol symbol="__GNUC__=7"/>
+<definedSymbol symbol="__GNUC__=8"/>
 <definedSymbol symbol="__GNUC_MINOR__=3"/>
+<definedSymbol symbol="__GNUC_MINOR__=2"/>
 <definedSymbol symbol="__GNUC_PATCHLEVEL__=1"/>
+<definedSymbol symbol="__GNUC_PATCHLEVEL__=0"/>
 <definedSymbol symbol="__VERSION__=&quot;7.3.1 20180425&quot;"/>
+<definedSymbol symbol="__VERSION__=&quot;8.2.0&quot;"/>
 <definedSymbol symbol="__ATOMIC_RELAXED=0"/>
 <definedSymbol symbol="__ATOMIC_SEQ_CST=5"/>
 <definedSymbol symbol="__ATOMIC_ACQUIRE=2"/>
@@ -75,6 +83,7 @@
 <definedSymbol symbol="__has_include(STR)=__has_include__(STR)"/>
 <definedSymbol symbol="__has_include_next(STR)=__has_include_next__(STR)"/>
 <definedSymbol symbol="__GXX_ABI_VERSION=1011"/>
+<definedSymbol symbol="__GXX_ABI_VERSION=1013"/>
 <definedSymbol symbol="__SCHAR_MAX__=0x7f"/>
 <definedSymbol symbol="__SHRT_MAX__=0x7fff"/>
 <definedSymbol symbol="__INT_MAX__=0x7fffffff"/>
@@ -572,18 +581,26 @@
 </instance>
 <instance id="xilinx.gnu.mb.exe.debug.737773975;xilinx.gnu.mb.exe.debug.737773975.;xilinx.gnu.mb.c.toolchain.compiler.debug.1595019250;xilinx.gnu.compiler.input.911143538">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="c:\xilinx\sdk\2019.1\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/8.2.0/include"/>
+<includePath path="c:\xilinx\sdk\2019.1\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/8.2.0/include-fixed"/>
+<includePath path="c:\xilinx\sdk\2019.1\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/8.2.0/../../../../microblaze-xilinx-elf/include"/>
 <includePath path="c:\xilinx\sdk\2018.3\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.3.1/include"/>
 <includePath path="c:\xilinx\sdk\2018.3\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.3.1/include-fixed"/>
 <includePath path="c:\xilinx\sdk\2018.3\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.3.1/../../../../microblaze-xilinx-elf/include"/>
 <definedSymbol symbol="__STDC__=1"/>
 <definedSymbol symbol="__STDC_VERSION__=201112L"/>
+<definedSymbol symbol="__STDC_VERSION__=201710L"/>
 <definedSymbol symbol="__STDC_UTF_16__=1"/>
 <definedSymbol symbol="__STDC_UTF_32__=1"/>
 <definedSymbol symbol="__STDC_HOSTED__=1"/>
 <definedSymbol symbol="__GNUC__=7"/>
+<definedSymbol symbol="__GNUC__=8"/>
 <definedSymbol symbol="__GNUC_MINOR__=3"/>
+<definedSymbol symbol="__GNUC_MINOR__=2"/>
 <definedSymbol symbol="__GNUC_PATCHLEVEL__=1"/>
+<definedSymbol symbol="__GNUC_PATCHLEVEL__=0"/>
 <definedSymbol symbol="__VERSION__=&quot;7.3.1 20180425&quot;"/>
+<definedSymbol symbol="__VERSION__=&quot;8.2.0&quot;"/>
 <definedSymbol symbol="__ATOMIC_RELAXED=0"/>
 <definedSymbol symbol="__ATOMIC_SEQ_CST=5"/>
 <definedSymbol symbol="__ATOMIC_ACQUIRE=2"/>
@@ -645,6 +662,7 @@
 <definedSymbol symbol="__has_include(STR)=__has_include__(STR)"/>
 <definedSymbol symbol="__has_include_next(STR)=__has_include_next__(STR)"/>
 <definedSymbol symbol="__GXX_ABI_VERSION=1011"/>
+<definedSymbol symbol="__GXX_ABI_VERSION=1013"/>
 <definedSymbol symbol="__SCHAR_MAX__=0x7f"/>
 <definedSymbol symbol="__SHRT_MAX__=0x7fff"/>
 <definedSymbol symbol="__INT_MAX__=0x7fffffff"/>

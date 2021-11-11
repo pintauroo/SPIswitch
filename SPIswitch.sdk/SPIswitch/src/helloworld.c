@@ -58,22 +58,32 @@
 
 #define BUFFER_SIZE 12
 
-#define WCR 0x40
+/*
+TABLE 4-1: SPI INSTRUCTION SET
+WCR - 010a aaaa 0x40
+RCR - 000a aaaa
+BFS - 100a aaaa
+BFC - 101a aaaa
+*/
 #define RCR 0x00
+#define WCR 0x40
+#define BFS 0x80
+#define BFC 0xA0
 
 
 //-------------------------
 #define BANK0 0xC0
-#define MADDR3L 0x01
-#define MADDR3H 0x02
-#define MADDR2L 0x03
-#define MADDR2H 0x04
-#define MADDR1L 0x05
-#define MADDR1H 0x06
-#define ESTATL 0x1A
-#define ESTATH 0x1B
+
 #define ERXSTL 0x04
 #define ERXSTH 0x05
+#define ERXTAILL 0x06
+#define ERXTAILH 0x07
+#define ERXHEADL 0x08
+#define ERXHEADH 0x09
+#define ESTATL 0x1A
+#define ESTATH 0x1B
+#define ECON1L 0x1E
+#define ECON1F 0x1F
 
 //-------------------------
 #define BANK1 0xC2
@@ -82,8 +92,20 @@
 #define MACON2L 0x02
 #define MACON2H 0x03
 
+
+
+#define MAMXFLL 0x0A
+#define MAMXFLH 0x0B
+
 //-------------------------
 #define BANK3 0xC6
+
+#define MADDR3L 0x01
+#define MADDR3H 0x02
+#define MADDR2L 0x03
+#define MADDR2H 0x04
+#define MADDR1L 0x05
+#define MADDR1H 0x06
 #define ECON2L 0x0E
 #define ECON2H 0x0F
 #define EUDASTL 0x16
@@ -95,11 +117,6 @@
 
 
 /*
-TABLE 4-1: SPI INSTRUCTION SET
-WCR - 010a aaaa 0x40
-RCR - 000a aaaa
-BFS - 100a aaaa
-BFC - 101a aaaa
 
 COCON<3:0> (ECON2<11:8> BANK3), which controls the frequency output on CLKOUT.
 1111 = 50 kHz nominal ((4 * FOSC)/2000)
@@ -136,64 +153,66 @@ int main()
     XSpi_SetSlaveSelect(&SpiInstance, 0x01);
 
 
-
-
-	xil_printf("\r\n\r\n");
-
-	bufferWriter((unsigned char []){BANK3, 0x00}, 2);	//Select Bank3
-	bufferWriter((unsigned char []){MADDR3L, 0x00}, 7);	//read MAADR from 0 to 5
+    //READ MAC
+	bufferWriter((unsigned char []){BANK3}, 1);	//Select Bank3
+	bufferWriter((unsigned char []){MADDR3L}, 7);	//read MAADR from 0 to 5
 	for(int i=0x00; i < 0x06; i++){
-		MAC[i]=ReadBuffer[1];
+		MAC[i]=ReadBuffer[i+1]; //the first value is always 0
 	}
+
 
 	//1. Write 1234h to EUDAST.
-	bufferWriter((unsigned char []){BANK0, 0x00}, 2);	//Select Bank0
-	bufferWriter((unsigned char []){WCR + EUDASTL, 0x34, 0x12, 0x00}, 4);	//Set EUDAST to 0x1234
+	bufferWriter((unsigned char []){BANK0}, 1);	//Select Bank0
+	bufferWriter((unsigned char []){WCR + EUDASTL, 0x34, 0x12}, 3);
 
 	//2. Read EUDAST to see if it now equals 1234h.
-	bufferWriter((unsigned char []){EUDASTL, 0x00}, 3);	//Set EUDAST to 0x1234
+	bufferWriter((unsigned char []){EUDASTL}, 2);
+	bufferWriter((unsigned char []){EUDASTH}, 2);
+
 
 	//3. Poll CLKRDY (ESTAT<12>) and wait for it to become set. 0001 0000 0000 0000 = 0x10
-	bufferWriter((unsigned char []){ESTATH, 0x00}, 2);	//ESTATH
+	bufferWriter((unsigned char []){ESTATH}, 2);
 
 	while((ReadBuffer[1]&(0x10))!=(0x10)){
-		bufferWriter((unsigned char []){ESTATH, 0x00}, 2);	//ESTATH
+		bufferWriter((unsigned char []){ESTATH}, 2);
 	}
 
-
 	//4. Issue a System Reset command by setting ETHRST (ECON2<4>).
-	bufferWriter((unsigned char []){BANK3, 0x00}, 2);	//Bank3
-	bufferWriter((unsigned char []){WCR+ECON2L, 0x10, 0x00}, 3);	//ECON2L=0x10
+	bufferWriter((unsigned char []){BANK3}, 1);
+	bufferWriter((unsigned char []){BFS+ECON2L, 0x10}, 2);
 
 	//5. In software, wait at least 25 us for the Reset to take place and the SPI/PSP interface to begin operating again.
 	usleep(25 * 1000);
 
 	//6. Read EUDAST to confirm that the System Reset took place. EUDAST should have reverted back to its Reset default of 0000h.
-	bufferWriter((unsigned char []){BANK0, 0x00}, 2);	//Select Bank0
-	bufferWriter((unsigned char []){EUDASTL, 0x00}, 3);	//Set EUDAST to 0x0000
+	bufferWriter((unsigned char []){BANK0}, 1);
+	bufferWriter((unsigned char []){EUDASTL}, 3);
+
+	if((ReadBuffer[1]&(0x00))!=(0x00) && (ReadBuffer[2]&(0x00))!=(0x00)){
+		xil_printf("HOW TO RISE AN ERROR? \r\n\r\n");
+	}
 
 	//7. Wait at least 256 us for the PHY registers and PHY status bits to become available.
-	usleep(2500 * 1000);
+	usleep(250 * 1000);
 
 	//CLKOUT Frequency
 	//bufferWriter(BANK3, 0x00, 0x00, 0x00, 2);			//Select Bank3
 	//bufferWriter(WCR+ECON2L, 0x10, 0x00, 0x00, 2);	//WCR (0x40) + 0x0E = 0x4E  ECON2<4> = 1 = 0x10
 
-	//Receive Buffer Reception of incoming packets begins at the address designated by ERXST and ends at (5FFFh).
-	bufferWriter((unsigned char []){BANK0, 0x00}, 2);	//Select Bank0
-	bufferWriter((unsigned char []){ERXSTL, 0x00}, 3);	//ERXSTL
 
 
-
-
-
-
-
-
-
-
-
+	//MAC Settings
 	xil_printf("\r\n\r\n");
+	xil_printf("\r\n\r\n");
+	xil_printf("\r\n\r\n");
+	xil_printf("\r\n\r\n");
+
+	//set HFRMEN (MACON2<2>) to accept any size frame.
+	bufferWriter((unsigned char []){BANK2}, 1);
+	bufferWriter((unsigned char []){MACON2L}, 3);
+	bufferWriter((unsigned char []){BFS+MACON2L, 0x04}, 2);
+	bufferWriter((unsigned char []){BFS+MACON2H, 0xff}, 2);
+	bufferWriter((unsigned char []){MACON2L}, 3);
 
 
 
@@ -214,7 +233,7 @@ void bufferWriter(unsigned char *outData, int ByteCount ){
 	XSpi_Transfer(&SpiInstance, outData, ReadBuffer, ByteCount);
 
 	xil_printf("writeBuffer: ");
-	for(int i=0; i<ByteCount-1; i++) {
+	for(int i=0; i<sizeof(outData); i++) {
 		xil_printf("0x%02x ", outData[i]);
 	}
 

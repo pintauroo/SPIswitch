@@ -1,10 +1,10 @@
-09:40:41 **** Incremental Build of configuration Debug for project SPIswitch ****
+23:56:32 **** Auto Build of configuration Debug for project SPIswitch ****
 make all 
 'Building file: ../src/helloworld.c'
 'Invoking: MicroBlaze gcc compiler'
 mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../SPIswitch_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
 ../src/helloworld.c: In function 'main':
-../src/helloworld.c:127:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+../src/helloworld.c:144:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
   int Status;
       ^~~~~~
 'Finished building: ../src/helloworld.c'
@@ -17,9 +17,9 @@ mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../SPIswitch_bsp/microblaze_0/lib -mlit
 'Invoking: MicroBlaze Print Size'
 mb-size SPIswitch.elf  |tee "SPIswitch.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  10328	    304	   3248	  13880	   3638	SPIswitch.elf
+  10464	    304	   3248	  14016	   36c0	SPIswitch.elf
 'Finished building: SPIswitch.elf.size'
 ' '
 
-09:40:42 Build Finished (took 1s.136ms)
+23:56:33 Build Finished (took 1s.82ms)
 
