@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>SPIswitch</name>
-	<comment>Created by SDK v2018.3. SPIswitch_bsp - microblaze_0</comment>
+	<name>SPISwitch</name>
+	<comment>Created by SDK v2018.3. SPISwitch_bsp - microblaze_0</comment>
 	<projects>
-		<project>SPIswitch_bsp</project>
+		<project>SPISwitch_bsp</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

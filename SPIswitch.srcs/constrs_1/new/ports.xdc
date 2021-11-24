@@ -15,3 +15,21 @@ set_property PACKAGE_PIN B16 		[get_ports SCLK]
 
 set_property IOSTANDARD LVCMOS33 	[get_ports {SS[0]}]
 set_property PACKAGE_PIN A14 		[get_ports {SS[0]}]
+
+set_property IOSTANDARD LVCMOS33 	[get_ports clk]
+set_property PACKAGE_PIN W5 		[get_ports clk]
+
+set_property IOSTANDARD LVCMOS33 	[get_ports reset1]
+set_property PACKAGE_PIN R2 		[get_ports reset1]
+
+set_property IOSTANDARD LVCMOS33 	[get_ports MISO1]
+set_property PACKAGE_PIN N17 		[get_ports MISO1]
+
+set_property IOSTANDARD LVCMOS33 	[get_ports MOSI1]
+set_property PACKAGE_PIN M18		[get_ports MOSI1]
+
+set_property IOSTANDARD LVCMOS33 	[get_ports SCLK1]
+set_property PACKAGE_PIN P18 		[get_ports SCLK1]
+
+set_property IOSTANDARD LVCMOS33 	[get_ports {SS1[0]}]
+set_property PACKAGE_PIN K17 		[get_ports {SS1[0]}]
