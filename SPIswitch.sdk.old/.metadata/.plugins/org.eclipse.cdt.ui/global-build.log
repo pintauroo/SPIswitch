@@ -1,0 +1,1576 @@
+20:48:37 **** Build of project SPISwitch_bsp ****
+make -k all 
+"Running Make include in microblaze_0/libsrc/bram_v4_2/src"
+make -C microblaze_0/libsrc/bram_v4_2/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make include in microblaze_0/libsrc/cpu_v2_8/src"
+make -C microblaze_0/libsrc/cpu_v2_8/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make include in microblaze_0/libsrc/spi_v4_4/src"
+make -C microblaze_0/libsrc/spi_v4_4/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make include in microblaze_0/libsrc/standalone_v6_8/src"
+make -C microblaze_0/libsrc/standalone_v6_8/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make include in microblaze_0/libsrc/uartlite_v3_2/src"
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make libs in microblaze_0/libsrc/bram_v4_2/src"
+make -C microblaze_0/libsrc/bram_v4_2/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling bram"
+mb-ar: creating ../../../lib/libxil.a
+"Running Make libs in microblaze_0/libsrc/cpu_v2_8/src"
+make -C microblaze_0/libsrc/cpu_v2_8/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling cpu"
+"Running Make libs in microblaze_0/libsrc/spi_v4_4/src"
+make -C microblaze_0/libsrc/spi_v4_4/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling spi"
+"Running Make libs in microblaze_0/libsrc/standalone_v6_8/src"
+make -C microblaze_0/libsrc/standalone_v6_8/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling standalone";
+microblaze_sleep.c:77:9: note: #pragma message: For the sleep routines, assembly instructions are used
+ #pragma message ("For the sleep routines, assembly instructions are used")
+         ^~~~~~~
+"Running Make libs in microblaze_0/libsrc/uartlite_v3_2/src"
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling uartlite"
+'Finished building libraries'
+20:48:45 **** Build of configuration Debug for project SPISwitch ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../SPISwitch_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -I../../SPISwitch_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building target: SPISwitch.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../SPISwitch_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "SPISwitch.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: SPISwitch.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size SPISwitch.elf  |tee "SPISwitch.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   2712	    268	   3108	   6088	   17c8	SPISwitch.elf
+'Finished building: SPISwitch.elf.size'
+' '
+20:48:47 **** Auto Build of configuration Debug for project SPISwitch ****
+make all 
+make: Nothing to be done for 'all'.
+20:49:05 **** Incremental Build of configuration Debug for project SPISwitch ****
+make all 
+make: Nothing to be done for 'all'.
+20:49:35 **** Auto Build of configuration Debug for project SPISwitch ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../SPISwitch_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'net100Poll':
+../src/helloworld.c:227:15: warning: variable 'NxtPkt' set but not used [-Wunused-but-set-variable]
+  unsigned int NxtPkt = 0x3000;
+               ^~~~~~
+../src/helloworld.c: In function 'net100Init':
+../src/helloworld.c:332:5: warning: implicit declaration of function 'net100PHYWrite'; did you mean 'net100Writer'? [-Wimplicit-function-declaration]
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+     net100Writer
+../src/helloworld.c:260:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/helloworld.c: At top level:
+../src/helloworld.c:397:6: warning: conflicting types for 'net100PHYWrite'
+ void net100PHYWrite(XSpi *SpiInstancePtr, unsigned char add, unsigned int val) {
+      ^~~~~~~~~~~~~~
+../src/helloworld.c:332:5: note: previous implicit declaration of 'net100PHYWrite' was here
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+../src/helloworld.c: In function 'receivePkt':
+../src/helloworld.c:531:28: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+    sendPkt(SpiInstancePtr, dataAddr, 28+(6+6+2));
+                            ^~~~~~~~
+../src/helloworld.c:193:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c: In function 'sendPkt':
+../src/helloworld.c:666:44: warning: passing argument 3 of 'net100WriteWord' makes integer from pointer without a cast [-Wint-conversion]
+   net100WriteWord(SpiInstancePtr, WGPRDPT, dataAddr-(6+6+2));//config data addr from rcvBuff
+                                            ^~~~~~~~
+../src/helloworld.c:392:6: note: expected 'unsigned int' but argument is of type 'unsigned char *'
+ void net100WriteWord(XSpi *SpiInstancePtr, unsigned char add, unsigned int word) {
+      ^~~~~~~~~~~~~~~
+../src/helloworld.c:669:15: warning: comparison between pointer and integer
+  } while(valW != dataAddr-(6+6+2));
+               ^~
+../src/helloworld.c:733:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+../src/helloworld.c: In function 'receivePkt':
+../src/helloworld.c:598:11: warning: 'ipProto' may be used uninitialized in this function [-Wmaybe-uninitialized]
+           xil_printf("Unkown Eth Protocol: %d\r\n", ipProto);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: SPISwitch.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../SPISwitch_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "SPISwitch.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: SPISwitch.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size SPISwitch.elf  |tee "SPISwitch.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  19364	    332	   3216	  22912	   5980	SPISwitch.elf
+'Finished building: SPISwitch.elf.size'
+' '
+20:51:09 **** Auto Build of configuration Debug for project SPISwitch ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../SPISwitch_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:206:14: warning: unused variable 'SpiInstance0' [-Wunused-variable]
+  static XSpi SpiInstance0;   /* The instance of the SPI device */
+              ^~~~~~~~~~~~
+../src/helloworld.c: In function 'net100Poll':
+../src/helloworld.c:229:15: warning: variable 'NxtPkt' set but not used [-Wunused-but-set-variable]
+  unsigned int NxtPkt = 0x3000;
+               ^~~~~~
+../src/helloworld.c: In function 'net100Init':
+../src/helloworld.c:334:5: warning: implicit declaration of function 'net100PHYWrite'; did you mean 'net100Writer'? [-Wimplicit-function-declaration]
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+     net100Writer
+../src/helloworld.c:262:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/helloworld.c: At top level:
+../src/helloworld.c:399:6: warning: conflicting types for 'net100PHYWrite'
+ void net100PHYWrite(XSpi *SpiInstancePtr, unsigned char add, unsigned int val) {
+      ^~~~~~~~~~~~~~
+../src/helloworld.c:334:5: note: previous implicit declaration of 'net100PHYWrite' was here
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+../src/helloworld.c: In function 'receivePkt':
+../src/helloworld.c:533:28: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+    sendPkt(SpiInstancePtr, dataAddr, 28+(6+6+2));
+                            ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c: In function 'sendPkt':
+../src/helloworld.c:668:44: warning: passing argument 3 of 'net100WriteWord' makes integer from pointer without a cast [-Wint-conversion]
+   net100WriteWord(SpiInstancePtr, WGPRDPT, dataAddr-(6+6+2));//config data addr from rcvBuff
+                                            ^~~~~~~~
+../src/helloworld.c:394:6: note: expected 'unsigned int' but argument is of type 'unsigned char *'
+ void net100WriteWord(XSpi *SpiInstancePtr, unsigned char add, unsigned int word) {
+      ^~~~~~~~~~~~~~~
+../src/helloworld.c:671:15: warning: comparison between pointer and integer
+  } while(valW != dataAddr-(6+6+2));
+               ^~
+../src/helloworld.c:735:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/helloworld.c:206:14: warning: 'SpiInstance0' defined but not used [-Wunused-variable]
+  static XSpi SpiInstance0;   /* The instance of the SPI device */
+              ^~~~~~~~~~~~
+../src/helloworld.c: In function 'receivePkt':
+../src/helloworld.c:600:11: warning: 'ipProto' may be used uninitialized in this function [-Wmaybe-uninitialized]
+           xil_printf("Unkown Eth Protocol: %d\r\n", ipProto);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: SPISwitch.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../SPISwitch_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "SPISwitch.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: SPISwitch.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size SPISwitch.elf  |tee "SPISwitch.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  19364	    332	   3216	  22912	   5980	SPISwitch.elf
+'Finished building: SPISwitch.elf.size'
+' '
+20:51:36 **** Incremental Build of configuration Debug for project SPISwitch ****
+make all 
+make: Nothing to be done for 'all'.
+10:20:25 **** Auto Build of project SPISwitch_bsp ****
+make -k all 
+"Running Make include in microblaze_0/libsrc/bram_v4_2/src"
+make -C microblaze_0/libsrc/bram_v4_2/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make include in microblaze_0/libsrc/cpu_v2_8/src"
+make -C microblaze_0/libsrc/cpu_v2_8/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make include in microblaze_0/libsrc/myNetworkFilter_v1_0/src"
+make -C microblaze_0/libsrc/myNetworkFilter_v1_0/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make include in microblaze_0/libsrc/spi_v4_4/src"
+make -C microblaze_0/libsrc/spi_v4_4/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make include in microblaze_0/libsrc/standalone_v6_8/src"
+make -C microblaze_0/libsrc/standalone_v6_8/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make include in microblaze_0/libsrc/uartlite_v3_2/src"
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make libs in microblaze_0/libsrc/bram_v4_2/src"
+make -C microblaze_0/libsrc/bram_v4_2/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling bram"
+mb-ar: creating ../../../lib/libxil.a
+"Running Make libs in microblaze_0/libsrc/cpu_v2_8/src"
+make -C microblaze_0/libsrc/cpu_v2_8/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling cpu"
+"Running Make libs in microblaze_0/libsrc/myNetworkFilter_v1_0/src"
+make -C microblaze_0/libsrc/myNetworkFilter_v1_0/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling myNetworkFilter..."
+myNetworkFilter_selftest.c: In function 'MYNETWORKFILTER_Reg_SelfTest':
+myNetworkFilter_selftest.c:52:64: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if ( MYNETWORKFILTER_mReadReg (baseaddr, read_loop_index*4) != (read_loop_index+1)*READ_WRITE_MUL_FACTOR){
+                                                                ^~
+myNetworkFilter_selftest.c:36:6: warning: unused variable 'Index' [-Wunused-variable]
+  int Index;
+      ^~~~~
+"Running Make libs in microblaze_0/libsrc/spi_v4_4/src"
+make -C microblaze_0/libsrc/spi_v4_4/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling spi"
+"Running Make libs in microblaze_0/libsrc/standalone_v6_8/src"
+make -C microblaze_0/libsrc/standalone_v6_8/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling standalone";
+microblaze_sleep.c:77:9: note: #pragma message: For the sleep routines, assembly instructions are used
+ #pragma message ("For the sleep routines, assembly instructions are used")
+         ^~~~~~~
+"Running Make libs in microblaze_0/libsrc/uartlite_v3_2/src"
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling uartlite"
+'Finished building libraries'
+10:20:35 **** Auto Build of configuration Debug for project SPISwitch ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../SPISwitch_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:206:14: warning: unused variable 'SpiInstance0' [-Wunused-variable]
+  static XSpi SpiInstance0;   /* The instance of the SPI device */
+              ^~~~~~~~~~~~
+../src/helloworld.c: In function 'net100Poll':
+../src/helloworld.c:229:15: warning: variable 'NxtPkt' set but not used [-Wunused-but-set-variable]
+  unsigned int NxtPkt = 0x3000;
+               ^~~~~~
+../src/helloworld.c: In function 'net100Init':
+../src/helloworld.c:334:5: warning: implicit declaration of function 'net100PHYWrite'; did you mean 'net100Writer'? [-Wimplicit-function-declaration]
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+     net100Writer
+../src/helloworld.c:262:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/helloworld.c: At top level:
+../src/helloworld.c:399:6: warning: conflicting types for 'net100PHYWrite'
+ void net100PHYWrite(XSpi *SpiInstancePtr, unsigned char add, unsigned int val) {
+      ^~~~~~~~~~~~~~
+../src/helloworld.c:334:5: note: previous implicit declaration of 'net100PHYWrite' was here
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+../src/helloworld.c: In function 'receivePkt':
+../src/helloworld.c:533:28: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+    sendPkt(SpiInstancePtr, dataAddr, 28+(6+6+2));
+                            ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c: In function 'sendPkt':
+../src/helloworld.c:668:44: warning: passing argument 3 of 'net100WriteWord' makes integer from pointer without a cast [-Wint-conversion]
+   net100WriteWord(SpiInstancePtr, WGPRDPT, dataAddr-(6+6+2));//config data addr from rcvBuff
+                                            ^~~~~~~~
+../src/helloworld.c:394:6: note: expected 'unsigned int' but argument is of type 'unsigned char *'
+ void net100WriteWord(XSpi *SpiInstancePtr, unsigned char add, unsigned int word) {
+      ^~~~~~~~~~~~~~~
+../src/helloworld.c:671:15: warning: comparison between pointer and integer
+  } while(valW != dataAddr-(6+6+2));
+               ^~
+../src/helloworld.c:735:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/helloworld.c:206:14: warning: 'SpiInstance0' defined but not used [-Wunused-variable]
+  static XSpi SpiInstance0;   /* The instance of the SPI device */
+              ^~~~~~~~~~~~
+../src/helloworld.c: In function 'receivePkt':
+../src/helloworld.c:600:11: warning: 'ipProto' may be used uninitialized in this function [-Wmaybe-uninitialized]
+           xil_printf("Unkown Eth Protocol: %d\r\n", ipProto);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+'Finished building: ../src/helloworld.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -I../../SPISwitch_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building target: SPISwitch.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../SPISwitch_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "SPISwitch.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: SPISwitch.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size SPISwitch.elf  |tee "SPISwitch.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  19364	    332	   3216	  22912	   5980	SPISwitch.elf
+'Finished building: SPISwitch.elf.size'
+' '
+10:27:00 **** Incremental Build of configuration Debug for project SPISwitch ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../SPISwitch_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:209:2: error: 'unsinged' undeclared (first use in this function); did you mean 'unlinkat'?
+  unsinged int *reg0 = XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR;
+  ^~~~~~~~
+  unlinkat
+../src/helloworld.c:209:2: note: each undeclared identifier is reported only once for each function it appears in
+../src/helloworld.c:209:11: error: expected ';' before 'int'
+  unsinged int *reg0 = XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR;
+           ^~~
+../src/helloworld.c:216:6: warning: implicit declaration of function 'xil_print'; did you mean 'xil_printf'? [-Wimplicit-function-declaration]
+      xil_print("reg%d: %u\r\n", i, &reg0);
+      ^~~~~~~~~
+      xil_printf
+../src/helloworld.c:216:37: error: 'reg0' undeclared (first use in this function); did you mean 'read'?
+      xil_print("reg%d: %u\r\n", i, &reg0);
+                                     ^~~~
+                                     read
+../src/helloworld.c:206:14: warning: unused variable 'SpiInstance0' [-Wunused-variable]
+  static XSpi SpiInstance0;   /* The instance of the SPI device */
+              ^~~~~~~~~~~~
+../src/helloworld.c: In function 'net100Poll':
+../src/helloworld.c:239:15: warning: variable 'NxtPkt' set but not used [-Wunused-but-set-variable]
+  unsigned int NxtPkt = 0x3000;
+               ^~~~~~
+../src/helloworld.c: In function 'net100Init':
+../src/helloworld.c:344:5: warning: implicit declaration of function 'net100PHYWrite'; did you mean 'net100Writer'? [-Wimplicit-function-declaration]
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+     net100Writer
+../src/helloworld.c:272:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/helloworld.c: At top level:
+../src/helloworld.c:409:6: warning: conflicting types for 'net100PHYWrite'
+ void net100PHYWrite(XSpi *SpiInstancePtr, unsigned char add, unsigned int val) {
+      ^~~~~~~~~~~~~~
+../src/helloworld.c:344:5: note: previous implicit declaration of 'net100PHYWrite' was here
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+../src/helloworld.c: In function 'receivePkt':
+../src/helloworld.c:543:28: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+    sendPkt(SpiInstancePtr, dataAddr, 28+(6+6+2));
+                            ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c: In function 'sendPkt':
+../src/helloworld.c:678:44: warning: passing argument 3 of 'net100WriteWord' makes integer from pointer without a cast [-Wint-conversion]
+   net100WriteWord(SpiInstancePtr, WGPRDPT, dataAddr-(6+6+2));//config data addr from rcvBuff
+                                            ^~~~~~~~
+../src/helloworld.c:404:6: note: expected 'unsigned int' but argument is of type 'unsigned char *'
+ void net100WriteWord(XSpi *SpiInstancePtr, unsigned char add, unsigned int word) {
+      ^~~~~~~~~~~~~~~
+../src/helloworld.c:681:15: warning: comparison between pointer and integer
+  } while(valW != dataAddr-(6+6+2));
+               ^~
+../src/helloworld.c:745:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/helloworld.c:206:14: warning: 'SpiInstance0' defined but not used [-Wunused-variable]
+  static XSpi SpiInstance0;   /* The instance of the SPI device */
+              ^~~~~~~~~~~~
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+10:27:23 **** Incremental Build of configuration Debug for project SPISwitch ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../SPISwitch_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+In file included from ../../SPISwitch_bsp/microblaze_0/include/xil_printf.h:12:0,
+                 from ../src/helloworld.c:63:
+../src/helloworld.c: In function 'main':
+../../SPISwitch_bsp/microblaze_0/include/xparameters.h:556:49: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+ #define XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR 0x44A20000
+                                                 ^
+../src/helloworld.c:209:23: note: in expansion of macro 'XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR'
+  unsigned int *reg0 = XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR;
+                       ^
+../src/helloworld.c:216:6: warning: implicit declaration of function 'xil_print'; did you mean 'xil_printf'? [-Wimplicit-function-declaration]
+      xil_print("reg%d: %u\r\n", i, &reg0);
+      ^~~~~~~~~
+      xil_printf
+../src/helloworld.c:217:12: error: lvalue required as left operand of assignment
+      &reg0 = &reg0 + 1;
+            ^
+../src/helloworld.c:206:14: warning: unused variable 'SpiInstance0' [-Wunused-variable]
+  static XSpi SpiInstance0;   /* The instance of the SPI device */
+              ^~~~~~~~~~~~
+../src/helloworld.c: In function 'net100Poll':
+../src/helloworld.c:239:15: warning: variable 'NxtPkt' set but not used [-Wunused-but-set-variable]
+  unsigned int NxtPkt = 0x3000;
+               ^~~~~~
+../src/helloworld.c: In function 'net100Init':
+../src/helloworld.c:344:5: warning: implicit declaration of function 'net100PHYWrite'; did you mean 'net100Writer'? [-Wimplicit-function-declaration]
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+     net100Writer
+../src/helloworld.c:272:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/helloworld.c: At top level:
+../src/helloworld.c:409:6: warning: conflicting types for 'net100PHYWrite'
+ void net100PHYWrite(XSpi *SpiInstancePtr, unsigned char add, unsigned int val) {
+      ^~~~~~~~~~~~~~
+../src/helloworld.c:344:5: note: previous implicit declaration of 'net100PHYWrite' was here
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+../src/helloworld.c: In function 'receivePkt':
+../src/helloworld.c:543:28: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+    sendPkt(SpiInstancePtr, dataAddr, 28+(6+6+2));
+                            ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c: In function 'sendPkt':
+../src/helloworld.c:678:44: warning: passing argument 3 of 'net100WriteWord' makes integer from pointer without a cast [-Wint-conversion]
+   net100WriteWord(SpiInstancePtr, WGPRDPT, dataAddr-(6+6+2));//config data addr from rcvBuff
+                                            ^~~~~~~~
+../src/helloworld.c:404:6: note: expected 'unsigned int' but argument is of type 'unsigned char *'
+ void net100WriteWord(XSpi *SpiInstancePtr, unsigned char add, unsigned int word) {
+      ^~~~~~~~~~~~~~~
+../src/helloworld.c:681:15: warning: comparison between pointer and integer
+  } while(valW != dataAddr-(6+6+2));
+               ^~
+../src/helloworld.c:745:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/helloworld.c:206:14: warning: 'SpiInstance0' defined but not used [-Wunused-variable]
+  static XSpi SpiInstance0;   /* The instance of the SPI device */
+              ^~~~~~~~~~~~
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+10:28:07 **** Incremental Build of configuration Debug for project SPISwitch ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../SPISwitch_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+In file included from ../../SPISwitch_bsp/microblaze_0/include/xil_printf.h:12:0,
+                 from ../src/helloworld.c:63:
+../src/helloworld.c: In function 'main':
+../../SPISwitch_bsp/microblaze_0/include/xparameters.h:556:49: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+ #define XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR 0x44A20000
+                                                 ^
+../src/helloworld.c:209:23: note: in expansion of macro 'XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR'
+  unsigned int *reg0 = XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR;
+                       ^
+../src/helloworld.c:216:6: warning: implicit declaration of function 'xil_print'; did you mean 'xil_printf'? [-Wimplicit-function-declaration]
+      xil_print("reg%d: %u\r\n", i, *reg0);
+      ^~~~~~~~~
+      xil_printf
+../src/helloworld.c:206:14: warning: unused variable 'SpiInstance0' [-Wunused-variable]
+  static XSpi SpiInstance0;   /* The instance of the SPI device */
+              ^~~~~~~~~~~~
+../src/helloworld.c: In function 'net100Poll':
+../src/helloworld.c:239:15: warning: variable 'NxtPkt' set but not used [-Wunused-but-set-variable]
+  unsigned int NxtPkt = 0x3000;
+               ^~~~~~
+../src/helloworld.c: In function 'net100Init':
+../src/helloworld.c:344:5: warning: implicit declaration of function 'net100PHYWrite'; did you mean 'net100Writer'? [-Wimplicit-function-declaration]
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+     net100Writer
+../src/helloworld.c:272:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/helloworld.c: At top level:
+../src/helloworld.c:409:6: warning: conflicting types for 'net100PHYWrite'
+ void net100PHYWrite(XSpi *SpiInstancePtr, unsigned char add, unsigned int val) {
+      ^~~~~~~~~~~~~~
+../src/helloworld.c:344:5: note: previous implicit declaration of 'net100PHYWrite' was here
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+../src/helloworld.c: In function 'receivePkt':
+../src/helloworld.c:543:28: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+    sendPkt(SpiInstancePtr, dataAddr, 28+(6+6+2));
+                            ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c: In function 'sendPkt':
+../src/helloworld.c:678:44: warning: passing argument 3 of 'net100WriteWord' makes integer from pointer without a cast [-Wint-conversion]
+   net100WriteWord(SpiInstancePtr, WGPRDPT, dataAddr-(6+6+2));//config data addr from rcvBuff
+                                            ^~~~~~~~
+../src/helloworld.c:404:6: note: expected 'unsigned int' but argument is of type 'unsigned char *'
+ void net100WriteWord(XSpi *SpiInstancePtr, unsigned char add, unsigned int word) {
+      ^~~~~~~~~~~~~~~
+../src/helloworld.c:681:15: warning: comparison between pointer and integer
+  } while(valW != dataAddr-(6+6+2));
+               ^~
+../src/helloworld.c:745:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/helloworld.c:206:14: warning: 'SpiInstance0' defined but not used [-Wunused-variable]
+  static XSpi SpiInstance0;   /* The instance of the SPI device */
+              ^~~~~~~~~~~~
+../src/helloworld.c: In function 'receivePkt':
+../src/helloworld.c:610:11: warning: 'ipProto' may be used uninitialized in this function [-Wmaybe-uninitialized]
+           xil_printf("Unkown Eth Protocol: %d\r\n", ipProto);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: SPISwitch.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../SPISwitch_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "SPISwitch.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+./src/helloworld.o: In function `main':
+C:\Users\Andrea\Desktop\SPIswitch\SPIswitch.sdk\SPISwitch\Debug/../src/helloworld.c:216: undefined reference to `xil_print'
+C:\Users\Andrea\Desktop\SPIswitch\SPIswitch.sdk\SPISwitch\Debug/../src/helloworld.c:219: undefined reference to `xil_print'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:38: SPISwitch.elf] Error 1
+10:28:31 **** Auto Build of configuration Debug for project SPISwitch ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../SPISwitch_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+In file included from ../../SPISwitch_bsp/microblaze_0/include/xil_printf.h:12:0,
+                 from ../src/helloworld.c:63:
+../src/helloworld.c: In function 'main':
+../../SPISwitch_bsp/microblaze_0/include/xparameters.h:556:49: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+ #define XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR 0x44A20000
+                                                 ^
+../src/helloworld.c:209:23: note: in expansion of macro 'XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR'
+  unsigned int *reg0 = XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR;
+                       ^
+../src/helloworld.c:206:14: warning: unused variable 'SpiInstance0' [-Wunused-variable]
+  static XSpi SpiInstance0;   /* The instance of the SPI device */
+              ^~~~~~~~~~~~
+../src/helloworld.c: In function 'net100Poll':
+../src/helloworld.c:239:15: warning: variable 'NxtPkt' set but not used [-Wunused-but-set-variable]
+  unsigned int NxtPkt = 0x3000;
+               ^~~~~~
+../src/helloworld.c: In function 'net100Init':
+../src/helloworld.c:344:5: warning: implicit declaration of function 'net100PHYWrite'; did you mean 'net100Writer'? [-Wimplicit-function-declaration]
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+     net100Writer
+../src/helloworld.c:272:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/helloworld.c: At top level:
+../src/helloworld.c:409:6: warning: conflicting types for 'net100PHYWrite'
+ void net100PHYWrite(XSpi *SpiInstancePtr, unsigned char add, unsigned int val) {
+      ^~~~~~~~~~~~~~
+../src/helloworld.c:344:5: note: previous implicit declaration of 'net100PHYWrite' was here
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+../src/helloworld.c: In function 'receivePkt':
+../src/helloworld.c:543:28: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+    sendPkt(SpiInstancePtr, dataAddr, 28+(6+6+2));
+                            ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c: In function 'sendPkt':
+../src/helloworld.c:678:44: warning: passing argument 3 of 'net100WriteWord' makes integer from pointer without a cast [-Wint-conversion]
+   net100WriteWord(SpiInstancePtr, WGPRDPT, dataAddr-(6+6+2));//config data addr from rcvBuff
+                                            ^~~~~~~~
+../src/helloworld.c:404:6: note: expected 'unsigned int' but argument is of type 'unsigned char *'
+ void net100WriteWord(XSpi *SpiInstancePtr, unsigned char add, unsigned int word) {
+      ^~~~~~~~~~~~~~~
+../src/helloworld.c:681:15: warning: comparison between pointer and integer
+  } while(valW != dataAddr-(6+6+2));
+               ^~
+../src/helloworld.c:745:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/helloworld.c:206:14: warning: 'SpiInstance0' defined but not used [-Wunused-variable]
+  static XSpi SpiInstance0;   /* The instance of the SPI device */
+              ^~~~~~~~~~~~
+../src/helloworld.c: In function 'receivePkt':
+../src/helloworld.c:610:11: warning: 'ipProto' may be used uninitialized in this function [-Wmaybe-uninitialized]
+           xil_printf("Unkown Eth Protocol: %d\r\n", ipProto);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: SPISwitch.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../SPISwitch_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "SPISwitch.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: SPISwitch.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size SPISwitch.elf  |tee "SPISwitch.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   7476	    272	   3108	  10856	   2a68	SPISwitch.elf
+'Finished building: SPISwitch.elf.size'
+' '
+10:28:37 **** Incremental Build of configuration Debug for project SPISwitch ****
+make all 
+make: Nothing to be done for 'all'.
+10:30:41 **** Auto Build of configuration Debug for project SPISwitch ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../SPISwitch_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+In file included from ../../SPISwitch_bsp/microblaze_0/include/xil_printf.h:12:0,
+                 from ../src/helloworld.c:63:
+../src/helloworld.c: In function 'main':
+../../SPISwitch_bsp/microblaze_0/include/xparameters.h:556:49: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+ #define XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR 0x44A20000
+                                                 ^
+../src/helloworld.c:209:23: note: in expansion of macro 'XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR'
+  unsigned int *reg0 = XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR;
+                       ^
+../src/helloworld.c:206:14: warning: unused variable 'SpiInstance0' [-Wunused-variable]
+  static XSpi SpiInstance0;   /* The instance of the SPI device */
+              ^~~~~~~~~~~~
+../src/helloworld.c: In function 'net100Poll':
+../src/helloworld.c:239:15: warning: variable 'NxtPkt' set but not used [-Wunused-but-set-variable]
+  unsigned int NxtPkt = 0x3000;
+               ^~~~~~
+../src/helloworld.c: In function 'net100Init':
+../src/helloworld.c:344:5: warning: implicit declaration of function 'net100PHYWrite'; did you mean 'net100Writer'? [-Wimplicit-function-declaration]
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+     net100Writer
+../src/helloworld.c:272:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/helloworld.c: At top level:
+../src/helloworld.c:409:6: warning: conflicting types for 'net100PHYWrite'
+ void net100PHYWrite(XSpi *SpiInstancePtr, unsigned char add, unsigned int val) {
+      ^~~~~~~~~~~~~~
+../src/helloworld.c:344:5: note: previous implicit declaration of 'net100PHYWrite' was here
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+../src/helloworld.c: In function 'receivePkt':
+../src/helloworld.c:543:28: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+    sendPkt(SpiInstancePtr, dataAddr, 28+(6+6+2));
+                            ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c: In function 'sendPkt':
+../src/helloworld.c:678:44: warning: passing argument 3 of 'net100WriteWord' makes integer from pointer without a cast [-Wint-conversion]
+   net100WriteWord(SpiInstancePtr, WGPRDPT, dataAddr-(6+6+2));//config data addr from rcvBuff
+                                            ^~~~~~~~
+../src/helloworld.c:404:6: note: expected 'unsigned int' but argument is of type 'unsigned char *'
+ void net100WriteWord(XSpi *SpiInstancePtr, unsigned char add, unsigned int word) {
+      ^~~~~~~~~~~~~~~
+../src/helloworld.c:681:15: warning: comparison between pointer and integer
+  } while(valW != dataAddr-(6+6+2));
+               ^~
+../src/helloworld.c:745:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/helloworld.c:206:14: warning: 'SpiInstance0' defined but not used [-Wunused-variable]
+  static XSpi SpiInstance0;   /* The instance of the SPI device */
+              ^~~~~~~~~~~~
+../src/helloworld.c: In function 'receivePkt':
+../src/helloworld.c:610:11: warning: 'ipProto' may be used uninitialized in this function [-Wmaybe-uninitialized]
+           xil_printf("Unkown Eth Protocol: %d\r\n", ipProto);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: SPISwitch.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../SPISwitch_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "SPISwitch.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: SPISwitch.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size SPISwitch.elf  |tee "SPISwitch.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   7560	    272	   3104	  10936	   2ab8	SPISwitch.elf
+'Finished building: SPISwitch.elf.size'
+' '
+10:30:44 **** Incremental Build of configuration Debug for project SPISwitch ****
+make all 
+make: Nothing to be done for 'all'.
+10:31:56 **** Auto Build of configuration Debug for project SPISwitch ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../SPISwitch_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+In file included from ../../SPISwitch_bsp/microblaze_0/include/xil_printf.h:12:0,
+                 from ../src/helloworld.c:63:
+../src/helloworld.c: In function 'main':
+../../SPISwitch_bsp/microblaze_0/include/xparameters.h:556:49: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+ #define XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR 0x44A20000
+                                                 ^
+../src/helloworld.c:209:23: note: in expansion of macro 'XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR'
+  unsigned int *reg0 = XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR;
+                       ^
+../src/helloworld.c:206:14: warning: unused variable 'SpiInstance0' [-Wunused-variable]
+  static XSpi SpiInstance0;   /* The instance of the SPI device */
+              ^~~~~~~~~~~~
+../src/helloworld.c: In function 'net100Poll':
+../src/helloworld.c:239:15: warning: variable 'NxtPkt' set but not used [-Wunused-but-set-variable]
+  unsigned int NxtPkt = 0x3000;
+               ^~~~~~
+../src/helloworld.c: In function 'net100Init':
+../src/helloworld.c:344:5: warning: implicit declaration of function 'net100PHYWrite'; did you mean 'net100Writer'? [-Wimplicit-function-declaration]
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+     net100Writer
+../src/helloworld.c:272:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/helloworld.c: At top level:
+../src/helloworld.c:409:6: warning: conflicting types for 'net100PHYWrite'
+ void net100PHYWrite(XSpi *SpiInstancePtr, unsigned char add, unsigned int val) {
+      ^~~~~~~~~~~~~~
+../src/helloworld.c:344:5: note: previous implicit declaration of 'net100PHYWrite' was here
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+../src/helloworld.c: In function 'receivePkt':
+../src/helloworld.c:543:28: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+    sendPkt(SpiInstancePtr, dataAddr, 28+(6+6+2));
+                            ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c: In function 'sendPkt':
+../src/helloworld.c:678:44: warning: passing argument 3 of 'net100WriteWord' makes integer from pointer without a cast [-Wint-conversion]
+   net100WriteWord(SpiInstancePtr, WGPRDPT, dataAddr-(6+6+2));//config data addr from rcvBuff
+                                            ^~~~~~~~
+../src/helloworld.c:404:6: note: expected 'unsigned int' but argument is of type 'unsigned char *'
+ void net100WriteWord(XSpi *SpiInstancePtr, unsigned char add, unsigned int word) {
+      ^~~~~~~~~~~~~~~
+../src/helloworld.c:681:15: warning: comparison between pointer and integer
+  } while(valW != dataAddr-(6+6+2));
+               ^~
+../src/helloworld.c:745:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/helloworld.c:206:14: warning: 'SpiInstance0' defined but not used [-Wunused-variable]
+  static XSpi SpiInstance0;   /* The instance of the SPI device */
+              ^~~~~~~~~~~~
+../src/helloworld.c: In function 'receivePkt':
+../src/helloworld.c:610:11: warning: 'ipProto' may be used uninitialized in this function [-Wmaybe-uninitialized]
+           xil_printf("Unkown Eth Protocol: %d\r\n", ipProto);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: SPISwitch.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../SPISwitch_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "SPISwitch.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: SPISwitch.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size SPISwitch.elf  |tee "SPISwitch.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   7536	    272	   3104	  10912	   2aa0	SPISwitch.elf
+'Finished building: SPISwitch.elf.size'
+' '
+10:32:01 **** Incremental Build of configuration Debug for project SPISwitch ****
+make all 
+make: Nothing to be done for 'all'.
+10:33:50 **** Auto Build of configuration Debug for project SPISwitch ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../SPISwitch_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+In file included from ../../SPISwitch_bsp/microblaze_0/include/xil_printf.h:12:0,
+                 from ../src/helloworld.c:63:
+../src/helloworld.c: In function 'main':
+../../SPISwitch_bsp/microblaze_0/include/xparameters.h:556:49: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+ #define XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR 0x44A20000
+                                                 ^
+../src/helloworld.c:209:23: note: in expansion of macro 'XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR'
+  unsigned int *reg0 = XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR;
+                       ^
+../src/helloworld.c:206:14: warning: unused variable 'SpiInstance0' [-Wunused-variable]
+  static XSpi SpiInstance0;   /* The instance of the SPI device */
+              ^~~~~~~~~~~~
+../src/helloworld.c: In function 'net100Poll':
+../src/helloworld.c:242:15: warning: variable 'NxtPkt' set but not used [-Wunused-but-set-variable]
+  unsigned int NxtPkt = 0x3000;
+               ^~~~~~
+../src/helloworld.c: In function 'net100Init':
+../src/helloworld.c:347:5: warning: implicit declaration of function 'net100PHYWrite'; did you mean 'net100Writer'? [-Wimplicit-function-declaration]
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+     net100Writer
+../src/helloworld.c:275:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/helloworld.c: At top level:
+../src/helloworld.c:412:6: warning: conflicting types for 'net100PHYWrite'
+ void net100PHYWrite(XSpi *SpiInstancePtr, unsigned char add, unsigned int val) {
+      ^~~~~~~~~~~~~~
+../src/helloworld.c:347:5: note: previous implicit declaration of 'net100PHYWrite' was here
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+../src/helloworld.c: In function 'receivePkt':
+../src/helloworld.c:546:28: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+    sendPkt(SpiInstancePtr, dataAddr, 28+(6+6+2));
+                            ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c: In function 'sendPkt':
+../src/helloworld.c:681:44: warning: passing argument 3 of 'net100WriteWord' makes integer from pointer without a cast [-Wint-conversion]
+   net100WriteWord(SpiInstancePtr, WGPRDPT, dataAddr-(6+6+2));//config data addr from rcvBuff
+                                            ^~~~~~~~
+../src/helloworld.c:407:6: note: expected 'unsigned int' but argument is of type 'unsigned char *'
+ void net100WriteWord(XSpi *SpiInstancePtr, unsigned char add, unsigned int word) {
+      ^~~~~~~~~~~~~~~
+../src/helloworld.c:684:15: warning: comparison between pointer and integer
+  } while(valW != dataAddr-(6+6+2));
+               ^~
+../src/helloworld.c:748:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/helloworld.c:206:14: warning: 'SpiInstance0' defined but not used [-Wunused-variable]
+  static XSpi SpiInstance0;   /* The instance of the SPI device */
+              ^~~~~~~~~~~~
+../src/helloworld.c: In function 'receivePkt':
+../src/helloworld.c:613:11: warning: 'ipProto' may be used uninitialized in this function [-Wmaybe-uninitialized]
+           xil_printf("Unkown Eth Protocol: %d\r\n", ipProto);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: SPISwitch.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../SPISwitch_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "SPISwitch.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: SPISwitch.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size SPISwitch.elf  |tee "SPISwitch.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   7600	    272	   3104	  10976	   2ae0	SPISwitch.elf
+'Finished building: SPISwitch.elf.size'
+' '
+10:34:00 **** Incremental Build of configuration Debug for project SPISwitch ****
+make all 
+make: Nothing to be done for 'all'.
+11:20:16 **** Incremental Build of configuration Debug for project SPISwitch ****
+make all 
+make: Nothing to be done for 'all'.
+12:13:39 **** Incremental Build of configuration Debug for project SPISwitch ****
+make all 
+make: Nothing to be done for 'all'.
+12:13:51 **** Auto Build of configuration Debug for project SPISwitch ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../SPISwitch_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+In file included from ../../SPISwitch_bsp/microblaze_0/include/xil_printf.h:12:0,
+                 from ../src/helloworld.c:63:
+../src/helloworld.c: In function 'main':
+../../SPISwitch_bsp/microblaze_0/include/xparameters.h:556:49: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+ #define XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR 0x44A20000
+                                                 ^
+../src/helloworld.c:211:23: note: in expansion of macro 'XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR'
+  unsigned int *reg0 = XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR;
+                       ^
+../src/helloworld.c:229:31: error: 'SPI_DEVICE_ID2' undeclared (first use in this function); did you mean 'SPI_DEVICE_ID0'?
+     net100Init(&SpiInstance2, SPI_DEVICE_ID2);
+                               ^~~~~~~~~~~~~~
+                               SPI_DEVICE_ID0
+../src/helloworld.c:229:31: note: each undeclared identifier is reported only once for each function it appears in
+../src/helloworld.c: In function 'net100Poll':
+../src/helloworld.c:256:3: error: expected ';' before 'x'
+   x++;
+   ^
+../src/helloworld.c:248:15: warning: variable 'NxtPkt' set but not used [-Wunused-but-set-variable]
+  unsigned int NxtPkt = 0x3000;
+               ^~~~~~
+../src/helloworld.c: In function 'net100Init':
+../src/helloworld.c:353:5: warning: implicit declaration of function 'net100PHYWrite'; did you mean 'net100Writer'? [-Wimplicit-function-declaration]
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+     net100Writer
+../src/helloworld.c:281:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/helloworld.c: At top level:
+../src/helloworld.c:418:6: warning: conflicting types for 'net100PHYWrite'
+ void net100PHYWrite(XSpi *SpiInstancePtr, unsigned char add, unsigned int val) {
+      ^~~~~~~~~~~~~~
+../src/helloworld.c:353:5: note: previous implicit declaration of 'net100PHYWrite' was here
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+../src/helloworld.c: In function 'receivePkt':
+../src/helloworld.c:525:4: error: 'reg0' undeclared (first use in this function); did you mean 'read'?
+  *(reg0) = eDST;
+    ^~~~
+    read
+../src/helloworld.c:536:11: error: incompatible type for argument 1 of 'sendPkt'
+   sendPkt(SpiInstance0, dataAddr, 28+(6+6+2));
+           ^~~~~~~~~~~~
+../src/helloworld.c:194:14: note: expected 'XSpi * {aka struct <anonymous> *}' but argument is of type 'XSpi {aka struct <anonymous>}'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:536:25: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(SpiInstance0, dataAddr, 28+(6+6+2));
+                         ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:537:11: error: incompatible type for argument 1 of 'sendPkt'
+   sendPkt(SpiInstance1, dataAddr, 28+(6+6+2));
+           ^~~~~~~~~~~~
+../src/helloworld.c:194:14: note: expected 'XSpi * {aka struct <anonymous> *}' but argument is of type 'XSpi {aka struct <anonymous>}'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:537:25: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(SpiInstance1, dataAddr, 28+(6+6+2));
+                         ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:538:11: error: incompatible type for argument 1 of 'sendPkt'
+   sendPkt(SpiInstance2, dataAddr, 28+(6+6+2));
+           ^~~~~~~~~~~~
+../src/helloworld.c:194:14: note: expected 'XSpi * {aka struct <anonymous> *}' but argument is of type 'XSpi {aka struct <anonymous>}'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:538:25: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(SpiInstance2, dataAddr, 28+(6+6+2));
+                         ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:542:11: error: incompatible type for argument 1 of 'sendPkt'
+   sendPkt(SpiInstance2, dataAddr, 28+(6+6+2));
+           ^~~~~~~~~~~~
+../src/helloworld.c:194:14: note: expected 'XSpi * {aka struct <anonymous> *}' but argument is of type 'XSpi {aka struct <anonymous>}'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:542:25: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(SpiInstance2, dataAddr, 28+(6+6+2));
+                         ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:546:11: error: 'SpiInstance3' undeclared (first use in this function); did you mean 'SpiInstance2'?
+   sendPkt(SpiInstance3, dataAddr, 28+(6+6+2));
+           ^~~~~~~~~~~~
+           SpiInstance2
+../src/helloworld.c:546:25: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(SpiInstance3, dataAddr, 28+(6+6+2));
+                         ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c: In function 'sendPkt':
+../src/helloworld.c:717:44: warning: passing argument 3 of 'net100WriteWord' makes integer from pointer without a cast [-Wint-conversion]
+   net100WriteWord(SpiInstancePtr, WGPRDPT, dataAddr-(6+6+2));//config data addr from rcvBuff
+                                            ^~~~~~~~
+../src/helloworld.c:413:6: note: expected 'unsigned int' but argument is of type 'unsigned char *'
+ void net100WriteWord(XSpi *SpiInstancePtr, unsigned char add, unsigned int word) {
+      ^~~~~~~~~~~~~~~
+../src/helloworld.c:720:15: warning: comparison between pointer and integer
+  } while(valW != dataAddr-(6+6+2));
+               ^~
+../src/helloworld.c:784:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+12:14:06 **** Auto Build of configuration Debug for project SPISwitch ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../SPISwitch_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+In file included from ../../SPISwitch_bsp/microblaze_0/include/xil_printf.h:12:0,
+                 from ../src/helloworld.c:63:
+../src/helloworld.c: In function 'main':
+../../SPISwitch_bsp/microblaze_0/include/xparameters.h:556:49: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+ #define XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR 0x44A20000
+                                                 ^
+../src/helloworld.c:211:23: note: in expansion of macro 'XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR'
+  unsigned int *reg0 = XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR;
+                       ^
+../src/helloworld.c:229:31: error: 'SPI_DEVICE_ID2' undeclared (first use in this function); did you mean 'SPI_DEVICE_ID0'?
+     net100Init(&SpiInstance2, SPI_DEVICE_ID2);
+                               ^~~~~~~~~~~~~~
+                               SPI_DEVICE_ID0
+../src/helloworld.c:229:31: note: each undeclared identifier is reported only once for each function it appears in
+../src/helloworld.c: In function 'net100Poll':
+../src/helloworld.c:256:3: error: expected ';' before 'x'
+   x++;
+   ^
+../src/helloworld.c:248:15: warning: variable 'NxtPkt' set but not used [-Wunused-but-set-variable]
+  unsigned int NxtPkt = 0x3000;
+               ^~~~~~
+../src/helloworld.c: In function 'net100Init':
+../src/helloworld.c:353:5: warning: implicit declaration of function 'net100PHYWrite'; did you mean 'net100Writer'? [-Wimplicit-function-declaration]
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+     net100Writer
+../src/helloworld.c:281:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/helloworld.c: At top level:
+../src/helloworld.c:418:6: warning: conflicting types for 'net100PHYWrite'
+ void net100PHYWrite(XSpi *SpiInstancePtr, unsigned char add, unsigned int val) {
+      ^~~~~~~~~~~~~~
+../src/helloworld.c:353:5: note: previous implicit declaration of 'net100PHYWrite' was here
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+../src/helloworld.c: In function 'receivePkt':
+../src/helloworld.c:525:4: error: 'reg0' undeclared (first use in this function); did you mean 'read'?
+  *(reg0) = eDST;
+    ^~~~
+    read
+../src/helloworld.c:536:11: error: invalid type argument of unary '*' (have 'XSpi {aka struct <anonymous>}')
+   sendPkt(*SpiInstance0, dataAddr, 28+(6+6+2));
+           ^~~~~~~~~~~~~
+../src/helloworld.c:536:26: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(*SpiInstance0, dataAddr, 28+(6+6+2));
+                          ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:537:11: error: incompatible type for argument 1 of 'sendPkt'
+   sendPkt(SpiInstance1, dataAddr, 28+(6+6+2));
+           ^~~~~~~~~~~~
+../src/helloworld.c:194:14: note: expected 'XSpi * {aka struct <anonymous> *}' but argument is of type 'XSpi {aka struct <anonymous>}'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:537:25: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(SpiInstance1, dataAddr, 28+(6+6+2));
+                         ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:538:11: error: incompatible type for argument 1 of 'sendPkt'
+   sendPkt(SpiInstance2, dataAddr, 28+(6+6+2));
+           ^~~~~~~~~~~~
+../src/helloworld.c:194:14: note: expected 'XSpi * {aka struct <anonymous> *}' but argument is of type 'XSpi {aka struct <anonymous>}'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:538:25: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(SpiInstance2, dataAddr, 28+(6+6+2));
+                         ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:542:11: error: incompatible type for argument 1 of 'sendPkt'
+   sendPkt(SpiInstance2, dataAddr, 28+(6+6+2));
+           ^~~~~~~~~~~~
+../src/helloworld.c:194:14: note: expected 'XSpi * {aka struct <anonymous> *}' but argument is of type 'XSpi {aka struct <anonymous>}'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:542:25: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(SpiInstance2, dataAddr, 28+(6+6+2));
+                         ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:546:11: error: 'SpiInstance3' undeclared (first use in this function); did you mean 'SpiInstance2'?
+   sendPkt(SpiInstance3, dataAddr, 28+(6+6+2));
+           ^~~~~~~~~~~~
+           SpiInstance2
+../src/helloworld.c:546:25: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(SpiInstance3, dataAddr, 28+(6+6+2));
+                         ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c: In function 'sendPkt':
+../src/helloworld.c:717:44: warning: passing argument 3 of 'net100WriteWord' makes integer from pointer without a cast [-Wint-conversion]
+   net100WriteWord(SpiInstancePtr, WGPRDPT, dataAddr-(6+6+2));//config data addr from rcvBuff
+                                            ^~~~~~~~
+../src/helloworld.c:413:6: note: expected 'unsigned int' but argument is of type 'unsigned char *'
+ void net100WriteWord(XSpi *SpiInstancePtr, unsigned char add, unsigned int word) {
+      ^~~~~~~~~~~~~~~
+../src/helloworld.c:720:15: warning: comparison between pointer and integer
+  } while(valW != dataAddr-(6+6+2));
+               ^~
+../src/helloworld.c:784:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+12:14:18 **** Auto Build of configuration Debug for project SPISwitch ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../SPISwitch_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+In file included from ../../SPISwitch_bsp/microblaze_0/include/xil_printf.h:12:0,
+                 from ../src/helloworld.c:63:
+../src/helloworld.c: In function 'main':
+../../SPISwitch_bsp/microblaze_0/include/xparameters.h:556:49: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+ #define XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR 0x44A20000
+                                                 ^
+../src/helloworld.c:211:23: note: in expansion of macro 'XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR'
+  unsigned int *reg0 = XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR;
+                       ^
+../src/helloworld.c:229:31: error: 'SPI_DEVICE_ID2' undeclared (first use in this function); did you mean 'SPI_DEVICE_ID0'?
+     net100Init(&SpiInstance2, SPI_DEVICE_ID2);
+                               ^~~~~~~~~~~~~~
+                               SPI_DEVICE_ID0
+../src/helloworld.c:229:31: note: each undeclared identifier is reported only once for each function it appears in
+../src/helloworld.c: In function 'net100Poll':
+../src/helloworld.c:256:3: error: expected ';' before 'x'
+   x++;
+   ^
+../src/helloworld.c:248:15: warning: variable 'NxtPkt' set but not used [-Wunused-but-set-variable]
+  unsigned int NxtPkt = 0x3000;
+               ^~~~~~
+../src/helloworld.c: In function 'net100Init':
+../src/helloworld.c:353:5: warning: implicit declaration of function 'net100PHYWrite'; did you mean 'net100Writer'? [-Wimplicit-function-declaration]
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+     net100Writer
+../src/helloworld.c:281:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/helloworld.c: At top level:
+../src/helloworld.c:418:6: warning: conflicting types for 'net100PHYWrite'
+ void net100PHYWrite(XSpi *SpiInstancePtr, unsigned char add, unsigned int val) {
+      ^~~~~~~~~~~~~~
+../src/helloworld.c:353:5: note: previous implicit declaration of 'net100PHYWrite' was here
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+../src/helloworld.c: In function 'receivePkt':
+../src/helloworld.c:525:4: error: 'reg0' undeclared (first use in this function); did you mean 'read'?
+  *(reg0) = eDST;
+    ^~~~
+    read
+../src/helloworld.c:536:11: error: invalid type argument of unary '*' (have 'XSpi {aka struct <anonymous>}')
+   sendPkt(*SpiInstance0, dataAddr, 28+(6+6+2));
+           ^~~~~~~~~~~~~
+../src/helloworld.c:536:26: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(*SpiInstance0, dataAddr, 28+(6+6+2));
+                          ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:537:11: error: invalid type argument of unary '*' (have 'XSpi {aka struct <anonymous>}')
+   sendPkt(*SpiInstance1, dataAddr, 28+(6+6+2));
+           ^~~~~~~~~~~~~
+../src/helloworld.c:537:26: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(*SpiInstance1, dataAddr, 28+(6+6+2));
+                          ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:538:11: error: invalid type argument of unary '*' (have 'XSpi {aka struct <anonymous>}')
+   sendPkt(*SpiInstance2, dataAddr, 28+(6+6+2));
+           ^~~~~~~~~~~~~
+../src/helloworld.c:538:26: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(*SpiInstance2, dataAddr, 28+(6+6+2));
+                          ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:542:11: error: invalid type argument of unary '*' (have 'XSpi {aka struct <anonymous>}')
+   sendPkt(*SpiInstance2, dataAddr, 28+(6+6+2));
+           ^~~~~~~~~~~~~
+../src/helloworld.c:542:26: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(*SpiInstance2, dataAddr, 28+(6+6+2));
+                          ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:546:12: error: 'SpiInstance3' undeclared (first use in this function); did you mean 'SpiInstance2'?
+   sendPkt(*SpiInstance3, dataAddr, 28+(6+6+2));
+            ^~~~~~~~~~~~
+            SpiInstance2
+../src/helloworld.c:546:26: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(*SpiInstance3, dataAddr, 28+(6+6+2));
+                          ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c: In function 'sendPkt':
+../src/helloworld.c:717:44: warning: passing argument 3 of 'net100WriteWord' makes integer from pointer without a cast [-Wint-conversion]
+   net100WriteWord(SpiInstancePtr, WGPRDPT, dataAddr-(6+6+2));//config data addr from rcvBuff
+                                            ^~~~~~~~
+../src/helloworld.c:413:6: note: expected 'unsigned int' but argument is of type 'unsigned char *'
+ void net100WriteWord(XSpi *SpiInstancePtr, unsigned char add, unsigned int word) {
+      ^~~~~~~~~~~~~~~
+../src/helloworld.c:720:15: warning: comparison between pointer and integer
+  } while(valW != dataAddr-(6+6+2));
+               ^~
+../src/helloworld.c:784:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+12:15:15 **** Auto Build of configuration Debug for project SPISwitch ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../SPISwitch_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+In file included from ../../SPISwitch_bsp/microblaze_0/include/xil_printf.h:12:0,
+                 from ../src/helloworld.c:63:
+../../SPISwitch_bsp/microblaze_0/include/xparameters.h:556:49: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+ #define XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR 0x44A20000
+                                                 ^
+../src/helloworld.c:204:22: note: in expansion of macro 'XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR'
+ unsigned int *reg0 = XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR;
+                      ^
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:230:31: error: 'SPI_DEVICE_ID2' undeclared (first use in this function); did you mean 'SPI_DEVICE_ID0'?
+     net100Init(&SpiInstance2, SPI_DEVICE_ID2);
+                               ^~~~~~~~~~~~~~
+                               SPI_DEVICE_ID0
+../src/helloworld.c:230:31: note: each undeclared identifier is reported only once for each function it appears in
+../src/helloworld.c: In function 'net100Poll':
+../src/helloworld.c:257:3: error: expected ';' before 'x'
+   x++;
+   ^
+../src/helloworld.c:249:15: warning: variable 'NxtPkt' set but not used [-Wunused-but-set-variable]
+  unsigned int NxtPkt = 0x3000;
+               ^~~~~~
+../src/helloworld.c: In function 'net100Init':
+../src/helloworld.c:354:5: warning: implicit declaration of function 'net100PHYWrite'; did you mean 'net100Writer'? [-Wimplicit-function-declaration]
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+     net100Writer
+../src/helloworld.c:282:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/helloworld.c: At top level:
+../src/helloworld.c:419:6: warning: conflicting types for 'net100PHYWrite'
+ void net100PHYWrite(XSpi *SpiInstancePtr, unsigned char add, unsigned int val) {
+      ^~~~~~~~~~~~~~
+../src/helloworld.c:354:5: note: previous implicit declaration of 'net100PHYWrite' was here
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+../src/helloworld.c: In function 'receivePkt':
+../src/helloworld.c:526:10: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  *(reg0) = eDST;
+          ^
+../src/helloworld.c:528:12: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  *(reg0+1) = eSRC;
+            ^
+../src/helloworld.c:537:26: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(&SpiInstance0, dataAddr, 28+(6+6+2));
+                          ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:538:26: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(&SpiInstance1, dataAddr, 28+(6+6+2));
+                          ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:539:26: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(&SpiInstance2, dataAddr, 28+(6+6+2));
+                          ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:543:26: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(&SpiInstance2, dataAddr, 28+(6+6+2));
+                          ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:547:12: error: 'SpiInstance3' undeclared (first use in this function); did you mean 'SpiInstance2'?
+   sendPkt(&SpiInstance3, dataAddr, 28+(6+6+2));
+            ^~~~~~~~~~~~
+            SpiInstance2
+../src/helloworld.c:547:26: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(&SpiInstance3, dataAddr, 28+(6+6+2));
+                          ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c: In function 'sendPkt':
+../src/helloworld.c:718:44: warning: passing argument 3 of 'net100WriteWord' makes integer from pointer without a cast [-Wint-conversion]
+   net100WriteWord(SpiInstancePtr, WGPRDPT, dataAddr-(6+6+2));//config data addr from rcvBuff
+                                            ^~~~~~~~
+../src/helloworld.c:414:6: note: expected 'unsigned int' but argument is of type 'unsigned char *'
+ void net100WriteWord(XSpi *SpiInstancePtr, unsigned char add, unsigned int word) {
+      ^~~~~~~~~~~~~~~
+../src/helloworld.c:721:15: warning: comparison between pointer and integer
+  } while(valW != dataAddr-(6+6+2));
+               ^~
+../src/helloworld.c:785:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+12:15:39 **** Auto Build of configuration Debug for project SPISwitch ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../SPISwitch_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+In file included from ../../SPISwitch_bsp/microblaze_0/include/xil_printf.h:12:0,
+                 from ../src/helloworld.c:63:
+../../SPISwitch_bsp/microblaze_0/include/xparameters.h:556:49: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+ #define XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR 0x44A20000
+                                                 ^
+../src/helloworld.c:204:22: note: in expansion of macro 'XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR'
+ unsigned int *reg0 = XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR;
+                      ^
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:230:31: error: 'SPI_DEVICE_ID2' undeclared (first use in this function); did you mean 'SPI_DEVICE_ID0'?
+     net100Init(&SpiInstance2, SPI_DEVICE_ID2);
+                               ^~~~~~~~~~~~~~
+                               SPI_DEVICE_ID0
+../src/helloworld.c:230:31: note: each undeclared identifier is reported only once for each function it appears in
+../src/helloworld.c: In function 'net100Poll':
+../src/helloworld.c:249:15: warning: variable 'NxtPkt' set but not used [-Wunused-but-set-variable]
+  unsigned int NxtPkt = 0x3000;
+               ^~~~~~
+../src/helloworld.c: In function 'net100Init':
+../src/helloworld.c:354:5: warning: implicit declaration of function 'net100PHYWrite'; did you mean 'net100Writer'? [-Wimplicit-function-declaration]
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+     net100Writer
+../src/helloworld.c:282:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/helloworld.c: At top level:
+../src/helloworld.c:419:6: warning: conflicting types for 'net100PHYWrite'
+ void net100PHYWrite(XSpi *SpiInstancePtr, unsigned char add, unsigned int val) {
+      ^~~~~~~~~~~~~~
+../src/helloworld.c:354:5: note: previous implicit declaration of 'net100PHYWrite' was here
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+../src/helloworld.c: In function 'receivePkt':
+../src/helloworld.c:526:10: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  *(reg0) = eDST;
+          ^
+../src/helloworld.c:528:12: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  *(reg0+1) = eSRC;
+            ^
+../src/helloworld.c:537:26: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(&SpiInstance0, dataAddr, 28+(6+6+2));
+                          ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:538:26: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(&SpiInstance1, dataAddr, 28+(6+6+2));
+                          ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:539:26: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(&SpiInstance2, dataAddr, 28+(6+6+2));
+                          ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:543:26: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(&SpiInstance2, dataAddr, 28+(6+6+2));
+                          ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:547:12: error: 'SpiInstance3' undeclared (first use in this function); did you mean 'SpiInstance2'?
+   sendPkt(&SpiInstance3, dataAddr, 28+(6+6+2));
+            ^~~~~~~~~~~~
+            SpiInstance2
+../src/helloworld.c:547:26: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(&SpiInstance3, dataAddr, 28+(6+6+2));
+                          ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c: In function 'sendPkt':
+../src/helloworld.c:718:44: warning: passing argument 3 of 'net100WriteWord' makes integer from pointer without a cast [-Wint-conversion]
+   net100WriteWord(SpiInstancePtr, WGPRDPT, dataAddr-(6+6+2));//config data addr from rcvBuff
+                                            ^~~~~~~~
+../src/helloworld.c:414:6: note: expected 'unsigned int' but argument is of type 'unsigned char *'
+ void net100WriteWord(XSpi *SpiInstancePtr, unsigned char add, unsigned int word) {
+      ^~~~~~~~~~~~~~~
+../src/helloworld.c:721:15: warning: comparison between pointer and integer
+  } while(valW != dataAddr-(6+6+2));
+               ^~
+../src/helloworld.c:785:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+12:16:18 **** Auto Build of configuration Debug for project SPISwitch ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../SPISwitch_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+In file included from ../../SPISwitch_bsp/microblaze_0/include/xil_printf.h:12:0,
+                 from ../src/helloworld.c:63:
+../../SPISwitch_bsp/microblaze_0/include/xparameters.h:556:49: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+ #define XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR 0x44A20000
+                                                 ^
+../src/helloworld.c:204:22: note: in expansion of macro 'XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR'
+ unsigned int *reg0 = XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR;
+                      ^
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:230:31: error: 'SPI_DEVICE_ID2' undeclared (first use in this function); did you mean 'SPI_DEVICE_ID0'?
+     net100Init(&SpiInstance2, SPI_DEVICE_ID2);
+                               ^~~~~~~~~~~~~~
+                               SPI_DEVICE_ID0
+../src/helloworld.c:230:31: note: each undeclared identifier is reported only once for each function it appears in
+../src/helloworld.c: In function 'net100Poll':
+../src/helloworld.c:249:15: warning: variable 'NxtPkt' set but not used [-Wunused-but-set-variable]
+  unsigned int NxtPkt = 0x3000;
+               ^~~~~~
+../src/helloworld.c: In function 'net100Init':
+../src/helloworld.c:354:5: warning: implicit declaration of function 'net100PHYWrite'; did you mean 'net100Writer'? [-Wimplicit-function-declaration]
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+     net100Writer
+../src/helloworld.c:282:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/helloworld.c: At top level:
+../src/helloworld.c:419:6: warning: conflicting types for 'net100PHYWrite'
+ void net100PHYWrite(XSpi *SpiInstancePtr, unsigned char add, unsigned int val) {
+      ^~~~~~~~~~~~~~
+../src/helloworld.c:354:5: note: previous implicit declaration of 'net100PHYWrite' was here
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+../src/helloworld.c: In function 'receivePkt':
+../src/helloworld.c:526:10: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  *(reg0) = eDST;
+          ^
+../src/helloworld.c:528:12: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  *(reg0+1) = eSRC;
+            ^
+../src/helloworld.c:537:26: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(&SpiInstance0, dataAddr, 28+(6+6+2));
+                          ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:538:26: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(&SpiInstance1, dataAddr, 28+(6+6+2));
+                          ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:539:26: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(&SpiInstance2, dataAddr, 28+(6+6+2));
+                          ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:543:26: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(&SpiInstance1, dataAddr, 28+(6+6+2));
+                          ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:547:26: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(&SpiInstance2, dataAddr, 28+(6+6+2));
+                          ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c: In function 'sendPkt':
+../src/helloworld.c:718:44: warning: passing argument 3 of 'net100WriteWord' makes integer from pointer without a cast [-Wint-conversion]
+   net100WriteWord(SpiInstancePtr, WGPRDPT, dataAddr-(6+6+2));//config data addr from rcvBuff
+                                            ^~~~~~~~
+../src/helloworld.c:414:6: note: expected 'unsigned int' but argument is of type 'unsigned char *'
+ void net100WriteWord(XSpi *SpiInstancePtr, unsigned char add, unsigned int word) {
+      ^~~~~~~~~~~~~~~
+../src/helloworld.c:721:15: warning: comparison between pointer and integer
+  } while(valW != dataAddr-(6+6+2));
+               ^~
+../src/helloworld.c:785:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+12:38:47 **** Auto Build of configuration Debug for project SPISwitch ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../SPISwitch_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+In file included from ../../SPISwitch_bsp/microblaze_0/include/xil_printf.h:12:0,
+                 from ../src/helloworld.c:63:
+../../SPISwitch_bsp/microblaze_0/include/xparameters.h:556:49: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+ #define XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR 0x44A20000
+                                                 ^
+../src/helloworld.c:204:22: note: in expansion of macro 'XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR'
+ unsigned int *reg0 = XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR;
+                      ^
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:230:31: error: 'SPI_DEVICE_ID2' undeclared (first use in this function); did you mean 'SPI_DEVICE_ID0'?
+     net100Init(&SpiInstance2, SPI_DEVICE_ID2);
+                               ^~~~~~~~~~~~~~
+                               SPI_DEVICE_ID0
+../src/helloworld.c:230:31: note: each undeclared identifier is reported only once for each function it appears in
+../src/helloworld.c: In function 'net100Poll':
+../src/helloworld.c:249:15: warning: variable 'NxtPkt' set but not used [-Wunused-but-set-variable]
+  unsigned int NxtPkt = 0x3000;
+               ^~~~~~
+../src/helloworld.c: In function 'net100Init':
+../src/helloworld.c:354:5: warning: implicit declaration of function 'net100PHYWrite'; did you mean 'net100Writer'? [-Wimplicit-function-declaration]
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+     net100Writer
+../src/helloworld.c:282:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/helloworld.c: At top level:
+../src/helloworld.c:419:6: warning: conflicting types for 'net100PHYWrite'
+ void net100PHYWrite(XSpi *SpiInstancePtr, unsigned char add, unsigned int val) {
+      ^~~~~~~~~~~~~~
+../src/helloworld.c:354:5: note: previous implicit declaration of 'net100PHYWrite' was here
+     net100PHYWrite(SpiInstancePtr, PHANA, 0x05E1);
+     ^~~~~~~~~~~~~~
+../src/helloworld.c: In function 'receivePkt':
+../src/helloworld.c:533:12: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  *(reg0+1) = eSRC;
+            ^
+../src/helloworld.c:542:26: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(&SpiInstance0, dataAddr, 28+(6+6+2));
+                          ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:543:26: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(&SpiInstance1, dataAddr, 28+(6+6+2));
+                          ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:544:26: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(&SpiInstance2, dataAddr, 28+(6+6+2));
+                          ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:548:26: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(&SpiInstance1, dataAddr, 28+(6+6+2));
+                          ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c:552:26: warning: passing argument 2 of 'sendPkt' makes pointer from integer without a cast [-Wint-conversion]
+   sendPkt(&SpiInstance2, dataAddr, 28+(6+6+2));
+                          ^~~~~~~~
+../src/helloworld.c:194:14: note: expected 'unsigned char *' but argument is of type 'unsigned int'
+ unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
+              ^~~~~~~
+../src/helloworld.c: In function 'sendPkt':
+../src/helloworld.c:723:44: warning: passing argument 3 of 'net100WriteWord' makes integer from pointer without a cast [-Wint-conversion]
+   net100WriteWord(SpiInstancePtr, WGPRDPT, dataAddr-(6+6+2));//config data addr from rcvBuff
+                                            ^~~~~~~~
+../src/helloworld.c:414:6: note: expected 'unsigned int' but argument is of type 'unsigned char *'
+ void net100WriteWord(XSpi *SpiInstancePtr, unsigned char add, unsigned int word) {
+      ^~~~~~~~~~~~~~~
+../src/helloworld.c:726:15: warning: comparison between pointer and integer
+  } while(valW != dataAddr-(6+6+2));
+               ^~
+../src/helloworld.c:790:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+13:39:39 **** Incremental Build of configuration Debug for project SPISwitch ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../SPISwitch_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c:63:10: fatal error: xil_printf.h: No such file or directory
+ #include "xil_printf.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+13:40:04 **** Incremental Build of configuration Debug for project SPISwitch ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../SPISwitch_bsp/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c:63:10: fatal error: xil_printf.h: No such file or directory
+ #include "xil_printf.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1

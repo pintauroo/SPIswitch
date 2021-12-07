@@ -1,0 +1,326 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Fri Dec  3 12:28:22 2021
+# Process ID: 10416
+# Current directory: c:/Users/Andrea/Desktop/SPIswitch/SPIswitch.tmp/mynetworkfilter_v1_0_project/myNetworkFilter_v1_0_project.runs/synth_1
+# Command line: vivado.exe -log myNetworkFilter_v1_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source myNetworkFilter_v1_0.tcl
+# Log file: c:/Users/Andrea/Desktop/SPIswitch/SPIswitch.tmp/mynetworkfilter_v1_0_project/myNetworkFilter_v1_0_project.runs/synth_1/myNetworkFilter_v1_0.vds
+# Journal file: c:/Users/Andrea/Desktop/SPIswitch/SPIswitch.tmp/mynetworkfilter_v1_0_project/myNetworkFilter_v1_0_project.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source myNetworkFilter_v1_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Andrea/Desktop/ip_repo/myNetworkFilter_1.0'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+WARNING: [IP_Flow 19-4995] The host OS only allows 260 characters in a normal path. The IP cache path is more than 80 characters. If you experience issues with IP caching, please consider changing the IP cache to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. 
+Current IP cache path is c:/users/andrea/desktop/spiswitch/spiswitch.tmp/mynetworkfilter_v1_0_project/myNetworkFilter_v1_0_project.cache/ip 
+Command: synth_design -top myNetworkFilter_v1_0 -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 11752 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 465.133 ; gain = 101.359
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'myNetworkFilter_v1_0' [c:/Users/Andrea/Desktop/ip_repo/myNetworkFilter_1.0/hdl/myNetworkFilter_v1_0.vhd:49]
+	Parameter C_S00_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S00_AXI_ADDR_WIDTH bound to: 6 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 6 - type: integer 
+INFO: [Synth 8-3491] module 'myNetworkFilter_v1_0_S00_AXI' declared at 'c:/Users/Andrea/Desktop/ip_repo/myNetworkFilter_1.0/hdl/myNetworkFilter_v1_0_S00_AXI.vhd:5' bound to instance 'myNetworkFilter_v1_0_S00_AXI_inst' of component 'myNetworkFilter_v1_0_S00_AXI' [c:/Users/Andrea/Desktop/ip_repo/myNetworkFilter_1.0/hdl/myNetworkFilter_v1_0.vhd:85]
+INFO: [Synth 8-638] synthesizing module 'myNetworkFilter_v1_0_S00_AXI' [c:/Users/Andrea/Desktop/ip_repo/myNetworkFilter_1.0/hdl/myNetworkFilter_v1_0_S00_AXI.vhd:86]
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 6 - type: integer 
+INFO: [Synth 8-226] default block is never used [c:/Users/Andrea/Desktop/ip_repo/myNetworkFilter_1.0/hdl/myNetworkFilter_v1_0_S00_AXI.vhd:254]
+INFO: [Synth 8-226] default block is never used [c:/Users/Andrea/Desktop/ip_repo/myNetworkFilter_1.0/hdl/myNetworkFilter_v1_0_S00_AXI.vhd:492]
+WARNING: [Synth 8-614] signal 'myReg2' is read in the process but is not in the sensitivity list [c:/Users/Andrea/Desktop/ip_repo/myNetworkFilter_1.0/hdl/myNetworkFilter_v1_0_S00_AXI.vhd:487]
+WARNING: [Synth 8-614] signal 'myReg1' is read in the process but is not in the sensitivity list [c:/Users/Andrea/Desktop/ip_repo/myNetworkFilter_1.0/hdl/myNetworkFilter_v1_0_S00_AXI.vhd:487]
+WARNING: [Synth 8-614] signal 'myReg' is read in the process but is not in the sensitivity list [c:/Users/Andrea/Desktop/ip_repo/myNetworkFilter_1.0/hdl/myNetworkFilter_v1_0_S00_AXI.vhd:487]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg13_reg was removed.  [c:/Users/Andrea/Desktop/ip_repo/myNetworkFilter_1.0/hdl/myNetworkFilter_v1_0_S00_AXI.vhd:248]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg14_reg was removed.  [c:/Users/Andrea/Desktop/ip_repo/myNetworkFilter_1.0/hdl/myNetworkFilter_v1_0_S00_AXI.vhd:249]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg15_reg was removed.  [c:/Users/Andrea/Desktop/ip_repo/myNetworkFilter_1.0/hdl/myNetworkFilter_v1_0_S00_AXI.vhd:250]
+WARNING: [Synth 8-6014] Unused sequential element loc_addr_reg was removed.  [c:/Users/Andrea/Desktop/ip_repo/myNetworkFilter_1.0/hdl/myNetworkFilter_v1_0_S00_AXI.vhd:252]
+WARNING: [Synth 8-3848] Net myReg1 in module/entity myNetworkFilter_v1_0_S00_AXI does not have driver. [c:/Users/Andrea/Desktop/ip_repo/myNetworkFilter_1.0/hdl/myNetworkFilter_v1_0_S00_AXI.vhd:128]
+INFO: [Synth 8-256] done synthesizing module 'myNetworkFilter_v1_0_S00_AXI' (1#1) [c:/Users/Andrea/Desktop/ip_repo/myNetworkFilter_1.0/hdl/myNetworkFilter_v1_0_S00_AXI.vhd:86]
+INFO: [Synth 8-256] done synthesizing module 'myNetworkFilter_v1_0' (2#1) [c:/Users/Andrea/Desktop/ip_repo/myNetworkFilter_1.0/hdl/myNetworkFilter_v1_0.vhd:49]
+WARNING: [Synth 8-3331] design myNetworkFilter_v1_0_S00_AXI has unconnected port S_AXI_AWPROT[2]
+WARNING: [Synth 8-3331] design myNetworkFilter_v1_0_S00_AXI has unconnected port S_AXI_AWPROT[1]
+WARNING: [Synth 8-3331] design myNetworkFilter_v1_0_S00_AXI has unconnected port S_AXI_AWPROT[0]
+WARNING: [Synth 8-3331] design myNetworkFilter_v1_0_S00_AXI has unconnected port S_AXI_ARPROT[2]
+WARNING: [Synth 8-3331] design myNetworkFilter_v1_0_S00_AXI has unconnected port S_AXI_ARPROT[1]
+WARNING: [Synth 8-3331] design myNetworkFilter_v1_0_S00_AXI has unconnected port S_AXI_ARPROT[0]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 521.543 ; gain = 157.770
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 521.543 ; gain = 157.770
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 521.543 ; gain = 157.770
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Synth 8-5546] ROM "myReg" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "myReg" won't be mapped to RAM because it is too sparse
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 521.543 ; gain = 157.770
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 15    
+	                6 Bit    Registers := 2     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 13    
+	  16 Input     32 Bit        Muxes := 13    
+	   3 Input     32 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 6     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module myNetworkFilter_v1_0_S00_AXI 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 15    
+	                6 Bit    Registers := 2     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 13    
+	  16 Input     32 Bit        Muxes := 13    
+	   3 Input     32 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 6     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5546] ROM "myReg" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-3331] design myNetworkFilter_v1_0_S00_AXI has unconnected port S_AXI_AWPROT[2]
+WARNING: [Synth 8-3331] design myNetworkFilter_v1_0_S00_AXI has unconnected port S_AXI_AWPROT[1]
+WARNING: [Synth 8-3331] design myNetworkFilter_v1_0_S00_AXI has unconnected port S_AXI_AWPROT[0]
+WARNING: [Synth 8-3331] design myNetworkFilter_v1_0_S00_AXI has unconnected port S_AXI_ARPROT[2]
+WARNING: [Synth 8-3331] design myNetworkFilter_v1_0_S00_AXI has unconnected port S_AXI_ARPROT[1]
+WARNING: [Synth 8-3331] design myNetworkFilter_v1_0_S00_AXI has unconnected port S_AXI_ARPROT[0]
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[2]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[3]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[3]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[4]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[4]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[5]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[5]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[6]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[6]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[7]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[7]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[8]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[8]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[9]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[10]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[10]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[11]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[11]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[12]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[12]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[13]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[13]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[14]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[14]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[15]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[15]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[16]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[16]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[17]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[17]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[18]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[18]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[19]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[19]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[20]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[20]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[21]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[21]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[22]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[22]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[23]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[23]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[24]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[24]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[25]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[25]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[26]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[26]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[27]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[27]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[28]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[28]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[29]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[29]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[30]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[30]' (FDE) to 'myNetworkFilter_v1_0_S00_AXI_inst/myReg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/axi_rresp_reg[0]' (FDRE) to 'myNetworkFilter_v1_0_S00_AXI_inst/axi_rresp_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\myNetworkFilter_v1_0_S00_AXI_inst/axi_rresp_reg[1] )
+INFO: [Synth 8-3886] merging instance 'myNetworkFilter_v1_0_S00_AXI_inst/axi_bresp_reg[0]' (FDRE) to 'myNetworkFilter_v1_0_S00_AXI_inst/axi_bresp_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\myNetworkFilter_v1_0_S00_AXI_inst/axi_bresp_reg[1] )
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 678.789 ; gain = 315.016
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 678.789 ; gain = 315.016
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 678.789 ; gain = 315.016
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 678.789 ; gain = 315.016
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 678.789 ; gain = 315.016
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 678.789 ; gain = 315.016
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 678.789 ; gain = 315.016
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 678.789 ; gain = 315.016
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 678.789 ; gain = 315.016
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |     8|
+|3     |LUT1   |     2|
+|4     |LUT2   |     2|
+|5     |LUT3   |     1|
+|6     |LUT4   |     8|
+|7     |LUT5   |    36|
+|8     |LUT6   |   151|
+|9     |MUXF7  |    64|
+|10    |MUXF8  |    32|
+|11    |FDRE   |   492|
+|12    |FDSE   |     5|
+|13    |IBUF   |    51|
+|14    |OBUF   |    41|
++------+-------+------+
+
+Report Instance Areas: 
++------+------------------------------------+-----------------------------+------+
+|      |Instance                            |Module                       |Cells |
++------+------------------------------------+-----------------------------+------+
+|1     |top                                 |                             |   894|
+|2     |  myNetworkFilter_v1_0_S00_AXI_inst |myNetworkFilter_v1_0_S00_AXI |   801|
++------+------------------------------------+-----------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 678.789 ; gain = 315.016
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 20 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 678.789 ; gain = 315.016
+Synthesis Optimization Complete : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 678.789 ; gain = 315.016
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 104 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 761.875 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+55 Infos, 21 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 761.875 ; gain = 410.832
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 761.875 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'c:/Users/Andrea/Desktop/SPIswitch/SPIswitch.tmp/mynetworkfilter_v1_0_project/myNetworkFilter_v1_0_project.runs/synth_1/myNetworkFilter_v1_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file myNetworkFilter_v1_0_utilization_synth.rpt -pb myNetworkFilter_v1_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Fri Dec  3 12:28:44 2021...

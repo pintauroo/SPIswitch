@@ -25,29 +25,29 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 ELFSIZE += \
-SPISwitch.elf.size \
+SPIswitch.elf.size \
 
 
 # All Target
-all: SPISwitch.elf secondary-outputs
+all: SPIswitch.elf secondary-outputs
 
 # Tool invocations
-SPISwitch.elf: $(OBJS) ../src/lscript.ld $(USER_OBJS)
+SPIswitch.elf: $(OBJS) ../src/lscript.ld $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MicroBlaze gcc linker'
-	mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../SPISwitch_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "SPISwitch.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../SPIswitch_bsp/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "SPIswitch.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-SPISwitch.elf.size: SPISwitch.elf
+SPIswitch.elf.size: SPIswitch.elf
 	@echo 'Invoking: MicroBlaze Print Size'
-	mb-size SPISwitch.elf  |tee "SPISwitch.elf.size"
+	mb-size SPIswitch.elf  |tee "SPIswitch.elf.size"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(EXECUTABLES)$(OBJS)$(S_UPPER_DEPS)$(C_DEPS)$(ELFSIZE) SPISwitch.elf
+	-$(RM) $(EXECUTABLES)$(OBJS)$(S_UPPER_DEPS)$(C_DEPS)$(ELFSIZE) SPIswitch.elf
 	-@echo ' '
 
 secondary-outputs: $(ELFSIZE)

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?scdStore version="2"?><scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
-<instance id="xilinx.gnu.mb.exe.debug.1219152200;xilinx.gnu.mb.exe.debug.1219152200.">
+<instance id="xilinx.gnu.mb.exe.debug.948720169;xilinx.gnu.mb.exe.debug.948720169.">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
 <includePath path="c:\xilinx\sdk\2018.3\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.3.1/include"/>
 <includePath path="c:\xilinx\sdk\2018.3\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.3.1/include-fixed"/>
@@ -285,7 +285,7 @@
 <definedSymbol symbol="__MICROBLAZEEB__=1"/>
 </collector>
 </instance>
-<instance id="xilinx.gnu.mb.exe.release.1871521173;xilinx.gnu.mb.exe.release.1871521173.">
+<instance id="xilinx.gnu.mb.exe.release.184652396;xilinx.gnu.mb.exe.release.184652396.">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
 <includePath path="c:\xilinx\sdk\2018.3\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.3.1/include"/>
 <includePath path="c:\xilinx\sdk\2018.3\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.3.1/include-fixed"/>
@@ -570,7 +570,7 @@
 <definedSymbol symbol="__MICROBLAZEEB__=1"/>
 </collector>
 </instance>
-<instance id="xilinx.gnu.mb.exe.debug.1219152200;xilinx.gnu.mb.exe.debug.1219152200.;xilinx.gnu.mb.c.toolchain.compiler.debug.1549875088;xilinx.gnu.compiler.input.2087474975">
+<instance id="xilinx.gnu.mb.exe.debug.948720169;xilinx.gnu.mb.exe.debug.948720169.;xilinx.gnu.mb.c.toolchain.compiler.debug.1221749243;xilinx.gnu.compiler.input.118825389">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
 <includePath path="c:\xilinx\sdk\2018.3\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.3.1/include"/>
 <includePath path="c:\xilinx\sdk\2018.3\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.3.1/include-fixed"/>

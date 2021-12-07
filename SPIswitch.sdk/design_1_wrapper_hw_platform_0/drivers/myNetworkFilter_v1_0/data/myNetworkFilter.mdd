@@ -1,0 +1,10 @@
+
+
+OPTION psf_version = 2.1;
+
+BEGIN DRIVER myNetworkFilter
+	OPTION supported_peripherals = (myNetworkFilter);
+	OPTION copyfiles = all;
+	OPTION VERSION = 1.0;
+	OPTION NAME = myNetworkFilter;
+END DRIVER

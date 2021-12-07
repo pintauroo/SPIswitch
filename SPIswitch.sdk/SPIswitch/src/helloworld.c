@@ -69,6 +69,7 @@ Note that the switch does not learn the destination MAC until it receives a fram
 
 #define SPI_DEVICE_ID0 XPAR_SPI_0_DEVICE_ID
 #define SPI_DEVICE_ID1 XPAR_SPI_1_DEVICE_ID
+#define SPI_DEVICE_ID2 XPAR_SPI_2_DEVICE_ID
 
 #define BUFFER_SIZE 12
 
@@ -189,70 +190,72 @@ void bankSelect(XSpi *SpiInstancePtr,unsigned char add);
 void net100Writer(XSpi *SpiInstancePtr,unsigned char *outData, int ByteCount);
 unsigned int net100ReadByte(XSpi *SpiInstancePtr,unsigned char add);
 unsigned int net100ReadWord(XSpi *SpiInstancePtr,unsigned char add);
-void net100WriteWord(XSpi *SpiInstancePtr,unsigned char add, unsigned int word);
+void net100WriteWord(XSpi *SpiInstancePtr, unsigned char add, unsigned int word);
 unsigned int receivePkt(XSpi *SpiInstancePtr,unsigned int add);
 unsigned int sendPkt(XSpi *SpiInstancePtr,unsigned char *dataAddr, int numbyte);
 void net100Init(XSpi *SpiInstancePtr, int SPI_ID);
 void net100Poll(XSpi *SpiInstancePtr);
+void filterSendPkt(XSpi *SpiInstancePtr, unsigned char *dataAddr, int numBytes);
+void filterReceivePkt(XSpi *SpiInstancePtr, unsigned int add);
+void net100PHYWrite(XSpi *SpiInstancePtr, unsigned char add, unsigned int val);
+
 
 u8 MAC[6];
 
+
+static XSpi SpiInstance0;   /* The instance of the SPI device */
+static XSpi SpiInstance1;   /* The instance of the SPI device */
+static XSpi SpiInstance2;   /* The instance of the SPI device */
+unsigned int *reg0 = XPAR_MYNETWORKFILTER_0_S00_AXI_BASEADDR;
 
 
 int main()
 {
     print("---SPISwitch---\n\r");
 
-	static XSpi SpiInstance0;   /* The instance of the SPI device */
-	static XSpi SpiInstance1;   /* The instance of the SPI device */
-
     init_platform();
 
-
+    net100Init(&SpiInstance0, SPI_DEVICE_ID0);
     net100Init(&SpiInstance1, SPI_DEVICE_ID1);
-    net100Poll(&SpiInstance1);
+    net100Init(&SpiInstance2, SPI_DEVICE_ID2);
 
+    while(1){
+        net100Poll(&SpiInstance0);
+    }
 
     cleanup_platform();
-
-
-
-
     return 0;
 }
 
 void net100Poll(XSpi *SpiInstancePtr){
-
-
 	int numPkts = 0;
 	unsigned int rxTail;
-	unsigned int NxtPkt = 0x3000;
 	unsigned int val;
 
 
 	// Poll PKTCNT (ESTAT<7:0>) to determine how many pending packets
 	int x = 0;
-	while(1) {
-
+	do{
 		numPkts=net100ReadByte(SpiInstancePtr, ESTATL);
 		x++;
-		if(x%100 == 0) {
+		if(x%10000 == 0) {
 			xil_printf(".");
-		}
+		};
+	}while(numPkts == 0);
 
-		//1. Verify that a packet is waiting by ensuring that the PKTCNT<7:0>
-		if(numPkts > 0) {
-			xil_printf("\r\n");
-			bankSelect(SpiInstancePtr, BANK0);
-			//ERXHEAD, indicating the next location to be written, and automatically wraps back to ERXST when it reaches the end of memory
-			val = net100ReadWord(SpiInstancePtr, ERXHEADL);
-			//ERXTAIL, is maintained by software
-			rxTail = net100ReadWord(SpiInstancePtr, ERXTAILL);
-			xil_printf("Packets: %d - head: 0x%04x - tail: 0x%04x\r\n", numPkts, val, rxTail);
-			NxtPkt = receivePkt(SpiInstancePtr, rxTail);
-		}
-		usleep(1000); // 0.001 Sec
+	//1. Verify that a packet is waiting by ensuring that the PKTCNT<7:0>
+	if(numPkts > 0) {
+		xil_printf("\r\n");
+		bankSelect(SpiInstancePtr, BANK0);
+		//ERXHEAD, indicating the next location to be written, and automatically wraps back to ERXST when it reaches the end of memory
+		val = net100ReadWord(SpiInstancePtr, ERXHEADL);
+		//ERXTAIL, is maintained by software
+		rxTail = net100ReadWord(SpiInstancePtr, ERXTAILL);
+		xil_printf("Packets: %d - head: 0x%04x - tail: 0x%04x\r\n", numPkts, val, rxTail);
+		filterReceivePkt(SpiInstancePtr, rxTail);
 	}
+	usleep(1000); // 0.001 Sec
+
 
 
 }
@@ -313,8 +316,6 @@ void net100Init(XSpi *SpiInstancePtr, int SPI_ID){
 	xil_printf("head: 0x%04x - tail: 0x%04x\r\n", net100ReadWord(SpiInstancePtr, ERXHEADL), net100ReadWord(SpiInstancePtr, ERXTAILL));
 
 
-
-
 	//MAC Initialization
 
 	// Configure MAMXFL (1518 bytes or less by default)
@@ -324,8 +325,6 @@ void net100Init(XSpi *SpiInstancePtr, int SPI_ID){
 	//Set the RXEN bit (ECON1<0>) to enable packet reception by the MAC.
 	bankSelect(SpiInstancePtr, BANK2);
 	net100Writer(SpiInstancePtr,(unsigned char []){BFS+ECON1L, 0x01}, 2);
-
-
 
 
 	//PHY Initialization
@@ -414,7 +413,9 @@ void net100PHYWrite(XSpi *SpiInstancePtr, unsigned char add, unsigned int val) {
 
 
 
-unsigned int receivePkt(XSpi *SpiInstancePtr, unsigned int add) { // Add is expected to contain the PktTail
+
+
+void filterReceivePkt(XSpi *SpiInstancePtr, unsigned int add) { // Add is expected to contain the PktTail
 	unsigned int valW;
 	unsigned char RSV[6];
 	unsigned char eSRC[6];
@@ -455,7 +456,7 @@ unsigned int receivePkt(XSpi *SpiInstancePtr, unsigned int add) { // Add is expe
 	//4. Read the next six bytes, which are the Receive Status Vector (RSV).
 	XSpi_Transfer(SpiInstancePtr, (unsigned char []){RRXDATA}, RdBuf, 7);
 	memcpy(RSV, &RdBuf[1], 6);
-	xil_printf("RSV: 0x%02x%02x%02x%02x%02x%02x\r\n", RSV[0], RSV[1], RSV[2], RSV[3], RSV[4], RSV[5]);
+	//xil_printf("RSV: 0x%02x%02x%02x%02x%02x%02x\r\n", RSV[0], RSV[1], RSV[2], RSV[3], RSV[4], RSV[5]);
 
 	numBytes = RSV[1]*256 + RSV[0]; // This includes the destination address, source address, type/length, data, padding and CRC fields.
 
@@ -468,15 +469,6 @@ unsigned int receivePkt(XSpi *SpiInstancePtr, unsigned int add) { // Add is expe
 
 
 	//5. Read the Ethernet frame. The number of bytes to be read is indicated by the received byte count in the RSV read during step 4.
-	xil_printf(" *** Ether *** \r\n");
-	XSpi_Transfer(SpiInstancePtr, (unsigned char []){RRXDATA}, RdBuf, 7); //dest addr.
-	memcpy(eDST, &RdBuf[1], 6);
-
-
-	XSpi_Transfer(SpiInstancePtr, (unsigned char []){RRXDATA}, RdBuf, 7); //src addr.
-	memcpy(eSRC, &RdBuf[1], 6);
-	numBytes -= 12;
-	xil_printf("SRC: 0x%02x%02x%02x%02x%02x%02x  -  DST: 0x%02x%02x%02x%02x%02x%02x  -  ", eSRC[0], eSRC[1], eSRC[2], eSRC[3], eSRC[4], eSRC[5], eDST[0], eDST[1], eDST[2], eDST[3], eDST[4], eDST[5]);
 
 	/*6. As the frame is read and processed, incremental
 	amounts of memory buffer can be freed up by
@@ -489,7 +481,6 @@ unsigned int receivePkt(XSpi *SpiInstancePtr, unsigned int add) { // Add is expe
 	bankSelect(SpiInstancePtr, BANK0);
 	net100WriteWord(SpiInstancePtr, WCR+ERXTAILL, newTail);
     xil_printf("ERXTAIL: 0x%04x\r\n", net100ReadWord(SpiInstancePtr, ERXTAILL));
-
 	/*7. Set PKTDEC (ECON1<8>) to decrement the
 	PKTCNT bits. PKTDEC is automatically cleared
 	by hardware if PKTCNT decrements to zero.*/
@@ -497,119 +488,10 @@ unsigned int receivePkt(XSpi *SpiInstancePtr, unsigned int add) { // Add is expe
 
 
     //Read type/lenght field
-    int type= net100ReadByte(SpiInstancePtr, RRXDATA)*256 + net100ReadByte(SpiInstancePtr, RRXDATA);
-	numBytes -= 2;
-
-	if(type < 0x600) { // this is a len
-		xil_printf("Len: 0x%04x\r\n", type);
+	unsigned char ReadBuffer[numBytes-4];
+	for(int i=0; i<numBytes-4; i++) {
+		ReadBuffer[i] = net100ReadByte(SpiInstancePtr, RRXDATA);
 	}
-	else {
-		xil_printf("Type: 0x%04x\r\n", type);
-
-		if(type == 0x0806) { // This is an ARP packet - 28 Bytes
-
-			unsigned int dataAddr = net100ReadWord(SpiInstancePtr, RRXRDPT);
-	        xil_printf("dataAddr: 0x%04x\r\n", dataAddr);
-			xil_printf(" *** ARP Packet *** \r\n");
-			xil_printf("ARP Data:\r\n");
-
-			xil_printf("Hardware type : %02x %02x\r\n", net100ReadByte(SpiInstancePtr, RRXDATA), net100ReadByte(SpiInstancePtr, RRXDATA)); //Ethernet is 1.
-			xil_printf("Protocol type : %02x %02x\r\n", net100ReadByte(SpiInstancePtr, RRXDATA), net100ReadByte(SpiInstancePtr, RRXDATA)); //For IPv4, this has the value 0x0800
-			xil_printf("Hardware Address Length : %02x \r\n", net100ReadByte(SpiInstancePtr, RRXDATA)); //Ethernet address length is 6.
-			xil_printf("Protocol Address Length : %02x \r\n", net100ReadByte(SpiInstancePtr, RRXDATA)); //IPv4 address length is 4.
-			xil_printf("Request type : %02x %02x\r\n", net100ReadByte(SpiInstancePtr, RRXDATA), net100ReadByte(SpiInstancePtr, RRXDATA)); // 1 for request, 2 for reply.
-
-			xil_printf("Tell: ");
-			XSpi_Transfer(SpiInstancePtr, (unsigned char []){RRXDATA}, RdBuf, 7); //Sender hardware address (SHA)
-			xil_printf("SHA: %02x %02x %02x %02x %02x %02x\r\n", RdBuf[1], RdBuf[2], RdBuf[3], RdBuf[4], RdBuf[5], RdBuf[6]);
-			XSpi_Transfer(SpiInstancePtr, (unsigned char []){RRXDATA}, RdBuf, 5); //Sender protocol address (SPA)
-			xil_printf("SPA: %02x %02x\r\n", RdBuf[1], RdBuf[2], RdBuf[3], RdBuf[4]);
-			xil_printf("Who has: ");
-			XSpi_Transfer(SpiInstancePtr, (unsigned char []){RRXDATA}, RdBuf, 7); //Target hardware address (THA)
-			xil_printf("THA: %02x %02x %02x %02x %02x %02x\r\n", RdBuf[1], RdBuf[2], RdBuf[3], RdBuf[4], RdBuf[5], RdBuf[6]);
-			XSpi_Transfer(SpiInstancePtr, (unsigned char []){RRXDATA}, RdBuf, 5); //Target protocol address (TPA)
-			xil_printf("TPA: %02x %02x\r\n", RdBuf[1], RdBuf[2], RdBuf[3], RdBuf[4]);
-
-			sendPkt(SpiInstancePtr, dataAddr, 28+(6+6+2));
-
-
-
-			numBytes -= 28;
-		}else if(type == 0x0800) { // the paylod is an IPv4
-			xil_printf(" *** IPv4 Header *** \r\n");
-			XSpi_Transfer(SpiInstancePtr, (unsigned char []){RRXDATA}, RdBuf, 5);
-			tcpLen = RdBuf[3]*256+RdBuf[4]; // Needed if the payload is tcp
-			xil_printf("Ver: 0x%01x  -  IHL: 0x%01x  -  DSCP: 0x%02x - ECN: 0x%01x -  Len: 0x%04x\r\n", RdBuf[1]>>4, RdBuf[1]&0x0F, (RdBuf[2]&0xFC)>>2, RdBuf[2]&0x03, RdBuf[3]*256+RdBuf[4]);
-			XSpi_Transfer(SpiInstancePtr, (unsigned char []){RRXDATA}, RdBuf, 5);
-			xil_printf("Ident: 0x%02x  -  Flags: 0x%01x  -  Frag Off: 0x%04x\r\n", RdBuf[1]*256+RdBuf[2], RdBuf[3]>>5, (RdBuf[3]&0x1F)*256+RdBuf[4]);
-			XSpi_Transfer(SpiInstancePtr, (unsigned char []){RRXDATA}, RdBuf, 5);
-			ipProto = RdBuf[2];
-			xil_printf("TTL: 0x%02x  -  Prot: 0x%02x  -  HD CKS: 0x%04x\r\n", RdBuf[1], RdBuf[2], RdBuf[3]*256+RdBuf[4]);
-			XSpi_Transfer(SpiInstancePtr, (unsigned char []){RRXDATA}, RdBuf, 5);
-			xil_printf("SRC IP: %03d.%03d.%03d.%03d\r\n", RdBuf[1], RdBuf[2], RdBuf[3], RdBuf[4]);
-			XSpi_Transfer(SpiInstancePtr, (unsigned char []){RRXDATA}, RdBuf, 5);
-			xil_printf("DST IP: %03d.%03d.%03d.%03d\r\n", RdBuf[1], RdBuf[2], RdBuf[3], RdBuf[4]);
-			numBytes = numBytes - 20;
-			tcpLen -= 20; // subtract the IPv4 header
-			//if IHL > 5 there are option rows
-
-			if(ipProto == 6) { // TCP
-				xil_printf(" *** TCP Header *** \r\n"); // this might be wrong depending on what is deciphered above
-				XSpi_Transfer(SpiInstancePtr, (unsigned char []){RRXDATA, 0x00, 0x00, 0x00, 0x00}, RdBuf, 5);
-				xil_printf("SRC Port: 0x%04x  -  DST Port: 0x%04x\r\n", RdBuf[1]*256+RdBuf[2], RdBuf[3]*256+RdBuf[4]);
-				XSpi_Transfer(SpiInstancePtr, (unsigned char []){RRXDATA, 0x00, 0x00, 0x00, 0x00}, RdBuf, 5);
-				xil_printf("Seq Num: %09d\r\n", (((((RdBuf[1]<<8)+RdBuf[2])<<8)+RdBuf[3])<<8)+RdBuf[4]);
-				XSpi_Transfer(SpiInstancePtr, (unsigned char []){RRXDATA, 0x00, 0x00, 0x00, 0x00}, RdBuf, 5);
-				xil_printf("Ack Num: 0x%01x\r\n", (((((RdBuf[1]<<8)+RdBuf[2])<<8)+RdBuf[3])<<8)+RdBuf[4]);
-				XSpi_Transfer(SpiInstancePtr, (unsigned char []){RRXDATA, 0x00, 0x00, 0x00, 0x00}, RdBuf, 5);
-				xil_printf("Data Off: 0x%01x  -  Flags: 0x%03x  -  Wnd Size: 0x%04x\r\n", RdBuf[1]>>1, (RdBuf[1]&0x01)*256+RdBuf[2], RdBuf[3]*256+RdBuf[4]);
-				XSpi_Transfer(SpiInstancePtr, (unsigned char []){RRXDATA, 0x00, 0x00, 0x00, 0x00}, RdBuf, 5);
-				xil_printf("Checksum: 0x%04x  -  Urgent PTR: 0x%04x\r\n", RdBuf[1]*256+RdBuf[2], RdBuf[3]*256+RdBuf[4]);
-				// if Data Offset > 5 there are option rows
-				numBytes = numBytes - 20;
-				tcpLen -= 20; // subtract the TCP header
-				xil_printf("TCP Data: 0x");
-				for(int i=0; i<tcpLen; i++) {
-				XSpi_Transfer(SpiInstancePtr, (unsigned char []){RRXDATA, 0x00}, RdBuf, 2);
-				//                xil_printf("%02x", RdBuf[1]);
-				}
-				xil_printf("\r\n");
-				numBytes = numBytes - tcpLen;
-			}
-			else if(ipProto == 17) { // UDP
-				xil_printf(" *** UDP Head *** \r\n"); // this might be wrong depending on what is deciphered above
-				XSpi_Transfer(SpiInstancePtr, (unsigned char []){RRXDATA, 0x00, 0x00, 0x00, 0x00}, RdBuf, 5);
-				xil_printf("SRC Port: 0x%04x  -  DST Port: 0x%04x\r\n", RdBuf[1]*256+RdBuf[2], RdBuf[3]*256+RdBuf[4]);
-				XSpi_Transfer(SpiInstancePtr, (unsigned char []){RRXDATA, 0x00, 0x00, 0x00, 0x00}, RdBuf, 5);
-				udpLen = RdBuf[1]*256+RdBuf[2];
-				xil_printf("Length: 0x%04x  -  Checksum: 0x%04x\r\n", RdBuf[1]*256+RdBuf[2], RdBuf[3]*256+RdBuf[4]);
-				numBytes = numBytes - 8;
-				udpLen -= 8; // subtract off header bits
-				xil_printf("UDP Data: %d bytes 0x", udpLen);
-				for(int i=0; i<udpLen; i++) {
-					XSpi_Transfer(SpiInstancePtr, (unsigned char []){RRXDATA, 0x00}, RdBuf, 2);
-					//                xil_printf("%02x", RdBuf[1]);
-				}
-				xil_printf("\r\n");
-				numBytes = numBytes - udpLen;
-			}
-		 }
-		 else if(type == 0x86DD) { // the payload is an IPv6
-
-		 }else {
-	         xil_printf("Unkown Eth Protocol: %d\r\n", ipProto);
-	     }
-	}
-
-
-    xil_printf("%d Bytes left\r\n", numBytes);
-    xil_printf("Data: 0x");
-
-    for(int i=numBytes; i>4; i--) {
-        xil_printf("%02x", net100ReadByte(SpiInstancePtr, RRXDATA));
-    	numBytes -= 1;
-    }
-    xil_printf("\r\n");
 
     xil_printf(" *** Ether CRC ***\r\n");
     XSpi_Transfer(SpiInstancePtr, (unsigned char []){RRXDATA}, RdBuf, 5);
@@ -620,14 +502,48 @@ unsigned int receivePkt(XSpi *SpiInstancePtr, unsigned int add) { // Add is expe
     xil_printf("left numBytes: 0x%04x\r\n",numBytes);
 
 
+    ///////////////////////HW FILTER///////////////////////////
+    //copy dest[0;4] to reg0; dest[5;6] to reg 1; src[0;4] to reg2; src[5;6] to reg 3; type to reg4
 
-	return newTail;
+    unsigned int ready = 0x01;
+    unsigned int notready = 0x00;
+
+	//for(int i = 0 ; i<16; i++){
+	//	xil_printf("reg%u: 0x%08x \r\n",i, *(reg0+i));
+	//}
+
+    int type= ReadBuffer[12]*256 + ReadBuffer[13];
 
 
+    memcpy((void *)(reg0), &ReadBuffer[0], 4);
+	memcpy((void *)(reg0+1), &ReadBuffer[4], 2);
+	memcpy((void *)(reg0+2), &ReadBuffer[6], 4);
+	memcpy((void *)(reg0+3), &ReadBuffer[10], 2);
+	memcpy((void *)(reg0+4), &type, 2);
+	memcpy((void *)(reg0+12), &ready, 2);
+	while(*(reg0+14)==ready);
+	memcpy((void *)(reg0+12), &notready, 2);
+
+
+	if(*(reg0+15)==0xFFFFFFFF){
+		xil_printf("ARPPPPPPPPPPPPPPP -> BROADCAST \r\n");
+		filterSendPkt(&SpiInstance1, ReadBuffer, numBytes);
+		filterSendPkt(&SpiInstance2, ReadBuffer, numBytes);
+
+	}else if(*(reg0+15)==0x00000001){
+		xil_printf("ODDDDDDDDDDDDDDDDDDD  0x%04x\r\n", numBytes);
+		filterSendPkt(&SpiInstance1, ReadBuffer, numBytes);
+
+	}else {
+		xil_printf("EVENNNNNNNNNNNNNNNN 0x%04x\r\n", numBytes);
+		filterSendPkt(&SpiInstance2, ReadBuffer, numBytes);
+	};
 
 }
 
-unsigned int sendPkt(XSpi *SpiInstancePtr, unsigned char *dataAddr, int numBytes) {
+
+
+void filterSendPkt(XSpi *SpiInstancePtr, unsigned char *dataAddr, int numBytes) {
 	/*
 	1. Initialize the MAC as described in Section 8.6
 	“MAC Initialization”. Most applications should
@@ -639,7 +555,7 @@ unsigned int sendPkt(XSpi *SpiInstancePtr, unsigned char *dataAddr, int numBytes
 	*/
 
 	//Inputs are Destination Address, Source Address, Protocol, Data.
-	//MAC insertion desabled (TXMAC = 0) (ECON2<13>).
+	//MAC insertion disabled (TXMAC = 0) (ECON2<13>).
 	bankSelect(SpiInstancePtr, BANK3);
 	net100Writer(SpiInstancePtr,(unsigned char []){BFC+ECON2H, 0x20}, 2);
 	//Automatic padding no (PADCFG<2:0> = 000) (MACON2<7:5>)
@@ -665,10 +581,10 @@ unsigned int sendPkt(XSpi *SpiInstancePtr, unsigned char *dataAddr, int numBytes
 
 
 	do {
-		net100WriteWord(SpiInstancePtr, WGPRDPT, dataAddr-(6+6+2));//config data addr from rcvBuff
+		net100WriteWord(SpiInstancePtr, WGPRDPT, dataAddr);//config data addr from rcvBuff
         valW = net100ReadWord(SpiInstancePtr, RGPRDPT);
         xil_printf("RGPRDPT: 0x%04x\r\n", valW);
-	} while(valW != dataAddr-(6+6+2));
+	} while(valW != dataAddr);
 
 	//copy eth dest addr
 	//xil_printf("pointer: 0x%04x\r\n", net100ReadWord(SpiInstancePtr, RGPWRPT));
@@ -690,8 +606,8 @@ unsigned int sendPkt(XSpi *SpiInstancePtr, unsigned char *dataAddr, int numBytes
 	//XSpi_Transfer(SpiInstancePtr, (unsigned char []){WGPDATA, 0x06}, NULL, 3);
 	//copy data
 	int val = 0;
-    for(int i=numBytes; i>0; i--) {
-        XSpi_Transfer(SpiInstancePtr, (unsigned char []){WGPDATA, net100ReadByte(SpiInstancePtr, RGPDATA)}, NULL, 3); //2 is not working
+    for(int i=0; i<numBytes; i++) {
+        XSpi_Transfer(SpiInstancePtr, (unsigned char []){WGPDATA, dataAddr[i]}, NULL, 3); //2 is not working
     }
 
 	//4. Program ETXST to the start address of the 	packet. (the one copied in the transmit buff???)
@@ -733,8 +649,6 @@ unsigned int sendPkt(XSpi *SpiInstancePtr, unsigned char *dataAddr, int numBytes
 		70:8b:cd:11:5a:62
 	 */
 }
-
-
 
 
 

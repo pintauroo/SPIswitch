@@ -1,6 +1,6 @@
-20:51:36 **** Incremental Build of configuration Debug for project SPISwitch ****
+19:20:05 **** Incremental Build of configuration Debug for project SPIswitch ****
 make all 
 make: Nothing to be done for 'all'.
 
-20:51:37 Build Finished (took 174ms)
+19:20:05 Build Finished (took 183ms)
 

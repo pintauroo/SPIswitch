@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Tue Nov 23 20:22:06 2021
+| Date         : Fri Dec  3 12:32:47 2021
 | Host         : DESKTOP-S3B271S running 64-bit major release  (build 9200)
 | Command      : report_methodology -file design_1_wrapper_methodology_drc_routed.rpt -pb design_1_wrapper_methodology_drc_routed.pb -rpx design_1_wrapper_methodology_drc_routed.rpx
 | Design       : design_1_wrapper
@@ -23,13 +23,13 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 12
+             Violations found: 16
 +-----------+----------+-------------------------------+------------+
 | Rule      | Severity | Description                   | Violations |
 +-----------+----------+-------------------------------+------------+
 | LUTAR-1   | Warning  | LUT drives async reset alert  | 2          |
 | TIMING-9  | Warning  | Unknown CDC Logic             | 1          |
-| TIMING-18 | Warning  | Missing input or output delay | 9          |
+| TIMING-18 | Warning  | Missing input or output delay | 13         |
 +-----------+----------+-------------------------------+------------+
 
 2. REPORT DETAILS
@@ -61,35 +61,55 @@ Related violations: <none>
 
 TIMING-18#3 Warning
 Missing input or output delay  
-An input delay is missing on reset relative to clock(s) clk
+An input delay is missing on MISO2 relative to clock(s) clk
 Related violations: <none>
 
 TIMING-18#4 Warning
 Missing input or output delay  
-An output delay is missing on MOSI relative to clock(s) clk
+An input delay is missing on reset relative to clock(s) clk
 Related violations: <none>
 
 TIMING-18#5 Warning
 Missing input or output delay  
-An output delay is missing on MOSI1 relative to clock(s) clk
+An output delay is missing on MOSI relative to clock(s) clk
 Related violations: <none>
 
 TIMING-18#6 Warning
 Missing input or output delay  
-An output delay is missing on SCLK relative to clock(s) clk
+An output delay is missing on MOSI1 relative to clock(s) clk
 Related violations: <none>
 
 TIMING-18#7 Warning
 Missing input or output delay  
-An output delay is missing on SCLK1 relative to clock(s) clk
+An output delay is missing on MOSI2 relative to clock(s) clk
 Related violations: <none>
 
 TIMING-18#8 Warning
 Missing input or output delay  
-An output delay is missing on SS1[0] relative to clock(s) clk
+An output delay is missing on SCLK relative to clock(s) clk
 Related violations: <none>
 
 TIMING-18#9 Warning
+Missing input or output delay  
+An output delay is missing on SCLK1 relative to clock(s) clk
+Related violations: <none>
+
+TIMING-18#10 Warning
+Missing input or output delay  
+An output delay is missing on SCLK2 relative to clock(s) clk
+Related violations: <none>
+
+TIMING-18#11 Warning
+Missing input or output delay  
+An output delay is missing on SS1[0] relative to clock(s) clk
+Related violations: <none>
+
+TIMING-18#12 Warning
+Missing input or output delay  
+An output delay is missing on SS2[0] relative to clock(s) clk
+Related violations: <none>
+
+TIMING-18#13 Warning
 Missing input or output delay  
 An output delay is missing on SS[0] relative to clock(s) clk
 Related violations: <none>

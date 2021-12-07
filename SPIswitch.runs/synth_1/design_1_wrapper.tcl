@@ -17,6 +17,7 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_msg_config -id {Common 17-41} -limit 10000000
 create_project -in_memory -part xc7a35tcpg236-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -28,6 +29,8 @@ set_property parent.project_path C:/Users/Andrea/Desktop/SPIswitch/SPIswitch.xpr
 set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
+set_property ip_repo_paths c:/Users/Andrea/Desktop/ip_repo/myNetworkFilter_1.0 [current_project]
+update_ip_catalog
 set_property ip_output_repo c:/Users/Andrea/Desktop/SPIswitch/SPIswitch.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_vhdl -library xil_defaultlib C:/Users/Andrea/Desktop/SPIswitch/SPIswitch.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
@@ -60,6 +63,10 @@ set_property used_in_implementation false [get_files -all c:/Users/Andrea/Deskto
 set_property used_in_implementation false [get_files -all c:/Users/Andrea/Desktop/SPIswitch/SPIswitch.srcs/sources_1/bd/design_1/ip/design_1_axi_quad_spi_0_1/design_1_axi_quad_spi_0_1.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Andrea/Desktop/SPIswitch/SPIswitch.srcs/sources_1/bd/design_1/ip/design_1_axi_quad_spi_0_1/design_1_axi_quad_spi_0_1_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Andrea/Desktop/SPIswitch/SPIswitch.srcs/sources_1/bd/design_1/ip/design_1_axi_quad_spi_0_1/design_1_axi_quad_spi_0_1_clocks.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Andrea/Desktop/SPIswitch/SPIswitch.srcs/sources_1/bd/design_1/ip/design_1_axi_quad_spi_1_0/design_1_axi_quad_spi_1_0_board.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Andrea/Desktop/SPIswitch/SPIswitch.srcs/sources_1/bd/design_1/ip/design_1_axi_quad_spi_1_0/design_1_axi_quad_spi_1_0.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Andrea/Desktop/SPIswitch/SPIswitch.srcs/sources_1/bd/design_1/ip/design_1_axi_quad_spi_1_0/design_1_axi_quad_spi_1_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Andrea/Desktop/SPIswitch/SPIswitch.srcs/sources_1/bd/design_1/ip/design_1_axi_quad_spi_1_0/design_1_axi_quad_spi_1_0_clocks.xdc]
 set_property used_in_implementation false [get_files -all C:/Users/Andrea/Desktop/SPIswitch/SPIswitch.srcs/sources_1/bd/design_1/design_1_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being

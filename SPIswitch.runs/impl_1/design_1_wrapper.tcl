@@ -60,6 +60,7 @@ proc step_failed { step } {
   close $ch
 }
 
+set_msg_config -id {Common 17-41} -limit 10000000
 
 start_step init_design
 set ACTIVE_STEP init_design
@@ -70,6 +71,8 @@ set rc [catch {
   set_param project.singleFileAddWarning.threshold 0
   set_property webtalk.parent_dir C:/Users/Andrea/Desktop/SPIswitch/SPIswitch.cache/wt [current_project]
   set_property parent.project_path C:/Users/Andrea/Desktop/SPIswitch/SPIswitch.xpr [current_project]
+  set_property ip_repo_paths C:/Users/Andrea/Desktop/ip_repo/myNetworkFilter_1.0 [current_project]
+  update_ip_catalog
   set_property ip_output_repo C:/Users/Andrea/Desktop/SPIswitch/SPIswitch.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
